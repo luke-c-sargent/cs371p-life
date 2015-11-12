@@ -2,7 +2,6 @@
 
 Cell::Cell(AbstractCell* _acp): 
 		abstractcell_ptr(_acp){
-
 }
 
 Cell::~Cell(){

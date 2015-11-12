@@ -3,6 +3,6 @@
 #include "AbstractCell.h"
 
 class ConwayCell: AbstractCell{
-	ConwayCell(bool);
+	ConwayCell(bool living = false);
 	void act();
 };
