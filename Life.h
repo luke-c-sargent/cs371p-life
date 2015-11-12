@@ -1,14 +1,18 @@
 #pragma once
 
 #include <vector>
-#include <iostream>
+#include <iostream> 
 #include <string>
+#include "gtest/gtest_prod.h"
 
 using namespace std;
 
 template<typename CellType>
 class Life{
-	int rows,columns,evolutions,frequency;
+	int x,y,evolutions,frequency;
 	vector<CellType> grid;
-	Life(istream&);
+	Life<CellType>(istream&);
+
+	//FRIEND TESTS
+	FRIEND_TEST(LifeFixture, Life_Constructor_1);
 };

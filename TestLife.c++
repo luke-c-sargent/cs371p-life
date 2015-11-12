@@ -17,10 +17,16 @@
 #include "gtest/gtest.h"
 
 #include "Life.h"
+#include "Cell.h"
 
 using namespace std;
 
 
 TEST(LifeFixture, Life_Constructor_1){
-
+	istringstream s("Cell\n1\n2\n3\n4\n*******");
+	Life<Cell> l(s);
+	ASSERT_EQ(1,l.x);
+	ASSERT_EQ(2,l.y);
+	ASSERT_EQ(3,l.evolutions);
+	ASSERT_EQ(4,l.frequency);
 }

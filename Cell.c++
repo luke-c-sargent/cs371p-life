@@ -5,9 +5,9 @@ Cell::Cell(AbstractCell* _acp):
 }
 
 Cell::~Cell(){
-	delete acp;
+	delete abstractcell_ptr;
 }
 
 void Cell::act(){
-	acp->act();
+	abstractcell_ptr->act();
 }

@@ -73,8 +73,8 @@ RunDarwin.tmp: RunDarwin
 	./RunDarwin > RunDarwin.tmp
 	diff RunDarwin.tmp RunDarwin.out
 
-TestDarwin: Darwin.h Instruction.h Species.h Creature.h Darwin.c++ Species.c++ Creature.c++ Instructions.h TestDarwin.c++
-	$(CXX) $(CXXFLAGS) $(GCOVFLAGS) Darwin.h Instruction.h Species.h Creature.h Darwin.c++ Species.c++ Creature.c++ Instructions.h TestDarwin.c++ -o TestDarwin $(LDFLAGS)
+TestLife: Life.h Life.c++ TestLife.c++ Cell.h Cell.c++
+	$(CXX) $(CXXFLAGS) $(GCOVFLAGS) Life.h Life.c++ TestLife.c++ Cell.h Cell.c++ -o TestLife $(LDFLAGS)
 
 TestDarwin.tmp: TestDarwin
 	$(VALGRIND) ./TestDarwin                                       >  TestDarwin.tmp 2>&1
