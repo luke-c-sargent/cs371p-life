@@ -11,7 +11,8 @@ class Cell{
 	void act();
 public:	
 	Cell(AbstractCell*);
-	~Cell();
+	Cell(){}
+  ~Cell();
 
 	//friendship
 	
