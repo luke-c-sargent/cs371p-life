@@ -1,20 +1,16 @@
 #include <iostream> 
+#include <cstring>
 
 #include "Life.h"
+#include "Cell.h"
 
-template <typename CellType>
-Life<CellType>::Life(istream& input_stream){
-	
-	string type;
-
-	//parse input text:
-	string line;
-
-	getline(input_stream,line);// Cell type
-	type=line;
-
-	input_stream >> x;// rows
-	input_stream >> y;// cols
-	input_stream >> evolutions;// evolution
-	input_stream >> frequency;//frequency
-}
+using namespace std;
+//template <typename CellType>
+//void Life<CellType>::populate_heterogeneous_grid(istream& input_stream){
+/*
+void Life<CellType>::populate_heterogeneous_grid(){
+  string line;
+  while (getline(cin, line) && !line.empty()) {
+    cout << line << endl;
+  }
+} */

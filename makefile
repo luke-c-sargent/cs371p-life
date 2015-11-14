@@ -66,12 +66,12 @@ Darwin.log:
 Doxyfile:
 	doxygen -g
 
-RunDarwin: Darwin.h Instruction.h Species.h Creature.h Darwin.c++ Species.c++ Creature.c++ Instructions.h RunDarwin.c++
-	$(CXX) $(CXXFLAGS) Darwin.h Instruction.h Species.h Creature.h Darwin.c++ Species.c++ Creature.c++ Instructions.h RunDarwin.c++ -o RunDarwin
+RunLife: Life.h Life.c++ Cell.c++ RunLife.c++
+	$(CXX) $(CXXFLAGS) Life.h Life.c++ Cell.c++ RunLife.c++ -o RunLife
 
-RunDarwin.tmp: RunDarwin
-	./RunDarwin > RunDarwin.tmp
-	diff RunDarwin.tmp RunDarwin.out
+RunLife.tmp: RunLife
+	./RunLife < RunLife.in > RunLife.tmp
+#	diff RunDarwin.tmp RunDarwin.out
 
 TestLife: Life.h Life.c++ TestLife.c++ Cell.h Cell.c++
 	$(CXX) $(CXXFLAGS) $(GCOVFLAGS) Life.h Life.c++ TestLife.c++ Cell.h Cell.c++ -o TestLife $(LDFLAGS)
