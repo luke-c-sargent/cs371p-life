@@ -10,29 +10,36 @@ using namespace std;
 
 int main() {
   string line;
+  int x, y;
 
   while (getline(cin, line)) {
-    if (strcmp(line.c_str(), "Cell") == 0) {
-      Life<Cell> l(cin);
+/*    if (strcmp(line.c_str(), "Cell") == 0) {
+      cin >> x;
+      cin >> y;
+      Life<Cell> l(cin, x, y);
       getline(cin, line);
       l.is_hetero = true;
       l.populate_grid();
     }
     
     else{
-      if (strcmp(line.c_str(), "ConwayCell") == 0) {
-        Life<ConwayCell> l(cin);
+*/      if (strcmp(line.c_str(), "ConwayCell") == 0) {
+        cin >> x;
+        cin >> y;
+        Life<ConwayCell> l(cin, x, y);
         getline(cin, line);
         l.is_hetero = false;
         l.populate_grid();
       }
       else if (strcmp(line.c_str(), "FredkinCell") == 0) {
-        Life<ConwayCell> l(cin);
+        cin >> x;
+        cin >> y;
+        Life<ConwayCell> l(cin, x, y);
         getline(cin, line);
         l.is_hetero = false;
         l.populate_grid();
       }
-    }
+//    }
   
       //set up grid
       //run simulations

@@ -8,7 +8,7 @@ class AbstractCell {
 	virtual void act()=0;
 public:
 	AbstractCell(){}
-	virtual ~AbstractCell();
+	virtual ~AbstractCell(){}
 
 	
 };

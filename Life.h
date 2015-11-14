@@ -16,13 +16,17 @@ class Life{
 	bool is_hetero;
 
   //constructor
-  Life(istream& input_stream){
-    input_stream >> x;
-    input_stream >> y;
+  Life(istream& input_stream, int _x, int _y) :
+    grid(vector<CellType>((_x+2)*(_y+2)))
+  {
+    x = _x+2;
+    y = _y+2;
+//    input_stream >> x;
+//    input_stream >> y;
     input_stream >> evolutions;
     input_stream >> frequency;
   cout << x << " " << y << " " << evolutions << " " << frequency << endl;
-  
+     
   }
   void populate_grid() {
     if (is_hetero)
