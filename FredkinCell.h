@@ -6,5 +6,5 @@ class FredkinCell: AbstractCell{
 	int age;
 
 	FredkinCell(bool living = false);
-	int act();
+	void act();
 };
