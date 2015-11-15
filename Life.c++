@@ -2,7 +2,6 @@
 #include <cstring>
 
 #include "Life.h"
-#include "Cell.h"
 
 using namespace std;
 //template <typename CellType>

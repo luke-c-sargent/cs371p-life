@@ -4,6 +4,6 @@
 ConwayCell::ConwayCell(bool living): 
 	alive(living){}
 
-void ConwayCell::act(){
+//void ConwayCell::act(){
 
-}
+//}

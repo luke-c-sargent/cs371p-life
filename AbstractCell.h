@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Life.h"
+//#include "Life.h"
 
 class AbstractCell {
 	friend class Cell;
