@@ -2,7 +2,7 @@
 
 #include "AbstractCell.h"
 
-class ConwayCell: AbstractCell{
+class ConwayCell: public AbstractCell{
   public:
   ConwayCell(bool living = false){}//;
 	void act(){}

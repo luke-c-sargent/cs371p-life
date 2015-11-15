@@ -2,9 +2,9 @@
 
 #include "AbstractCell.h"
 
-class FredkinCell: AbstractCell{
+class FredkinCell: public AbstractCell{
   int age;
   public:
-	FredkinCell(bool living = false);//{}
-	void act();
+	FredkinCell(bool living = false){}
+	void act(){}
 };

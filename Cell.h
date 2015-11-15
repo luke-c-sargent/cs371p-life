@@ -5,11 +5,12 @@
 class Cell{
 	friend class FredkinCell;
 	friend class ConwayCell;
-
-	AbstractCell* abstractcell_ptr;
+//  friend class Life;
+  
 
 	void act();
 public:	
+	AbstractCell* abstractcell_ptr;
 	Cell(AbstractCell* = nullptr);
 //	Cell(){}//;
   ~Cell();

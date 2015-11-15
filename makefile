@@ -67,7 +67,7 @@ Doxyfile:
 	doxygen -g
 
 RunLife: Life.h Life.c++ Cell.h Cell.c++ RunLife.c++
-	$(CXX) $(CXXFLAGS) Life.h Life.c++ Cell.c++ RunLife.c++ -o RunLife
+	$(CXX) $(CXXFLAGS) Life.h Life.c++ Cell.h Cell.c++ RunLife.c++ -o RunLife
 
 RunLife.tmp: RunLife
 	./RunLife < RunLife.in > RunLife.tmp

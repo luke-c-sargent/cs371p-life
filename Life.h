@@ -4,6 +4,9 @@
 #include <iostream> 
 #include <string>
 #include "gtest/gtest_prod.h"
+#include "Cell.h"
+#include "FredkinCell.h"
+#include "ConwayCell.h"
 
 using namespace std;
 
@@ -26,18 +29,39 @@ class Life{
   cout << x << " " << y << " " << evolutions << " " << frequency << endl;
   }
 
+/*
   void populate_grid() {
-    populate_dead_cell_moat();
     if (is_hetero)
       populate_heterogeneous_grid();
     else
       populate_homogeneous_grid();
   }
+*/
 
   void populate_heterogeneous_grid(){
     string line;
-    while (getline(cin, line) && !line.empty()) {
+//    while (getline(cin, line) && !line.empty()) {
+    for (int i = 0; i < x; i++){
+      getline(cin, line);
       cout << line << endl;
+      for (int j = 0; j < y; j++) {
+        Cell cell = at(i, j);
+        char ch = line[j];
+        switch (ch) {
+          case ('.'):
+            cell.abstractcell_ptr = new ConwayCell(false);
+            break;
+          case('*'):
+            cell.abstractcell_ptr = new ConwayCell(true);
+            break;
+          case('-'):
+            cell.abstractcell_ptr = new FredkinCell(false);
+            break;
+          case('0'):
+            cell.abstractcell_ptr = new FredkinCell(true);
+            break;
+        }
+      }
     }
   }
 	
