@@ -40,10 +40,9 @@ class Life{
 
   void populate_heterogeneous_grid(){
     string line;
-//    while (getline(cin, line) && !line.empty()) {
     for (int i = 0; i < x; i++){
       getline(cin, line);
-      cout << line << endl;
+//      cout << line << endl;
       for (int j = 0; j < y; j++) {
         Cell cell = at(i, j);
         char ch = line[j];
@@ -64,35 +63,18 @@ class Life{
       }
     }
   }
-	
-  void populate_conway_grid(){
-    string line;
-    for (int i = 0; i < x; i++){
-      getline(cin, line);
-      cout << line << endl;
-      for (int j = 0; j < y; j++) {
-        ConwayCell cell = at(i, j);
-        if (line[j] == '*')
-          cell.alive = true;
-      }
-    }
-  }
 
-  void populate_fredkin_grid(){
+  void populate_homogeneous_grid(){
     string line;
     for (int i = 0; i < x; i++){
       getline(cin, line);
-      //cout << "reference" << endl;
-      //cout << line << endl;
       for (int j = 0; j < y; j++) {
-        //FredkinCell cell = at(i,j);
         if (line[j] == '0')
           at(i,j).alive = true;
-        //cell.print_cell();
-        //cout << line[j];
+        else if (line[j] == '*')
+          at(i,j).alive = true;
       }
     }
-    //print_grid();
   }
 
   CellType& at(int _x, int _y) {

@@ -1,16 +1,19 @@
-/*#include "FredkinCell.h"
+#include <iostream>
+#include "FredkinCell.h"
+
+using namespace std;
 
 FredkinCell::FredkinCell(bool living): 
-	alive(living),
-	age(0){}
+	age(0) {
+  alive = living; }
 
 void FredkinCell::act(){
 
 }
 
-void print_cell() {
+void FredkinCell::print_cell() {
   if (alive)
     cout << age;
   else
     cout << '-';
-} */
+}

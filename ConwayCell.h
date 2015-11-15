@@ -5,5 +5,6 @@
 class ConwayCell: public AbstractCell{
   public:
   ConwayCell(bool living = false);
-	void act(){}
+	void act();
+  void print_cell();
 };
