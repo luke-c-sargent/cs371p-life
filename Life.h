@@ -82,17 +82,17 @@ class Life{
     string line;
     for (int i = 0; i < x; i++){
       getline(cin, line);
-      cout << "reference" << endl;
-      cout << line << endl;
+      //cout << "reference" << endl;
+      //cout << line << endl;
       for (int j = 0; j < y; j++) {
-        FredkinCell cell = at(i,j);
+        //FredkinCell cell = at(i,j);
         if (line[j] == '0')
-          cell.alive = true;
-        cell.print_cell();
+          at(i,j).alive = true;
+        //cell.print_cell();
         //cout << line[j];
       }
-      cout << endl;
     }
+    //print_grid();
   }
 
   CellType& at(int _x, int _y) {
