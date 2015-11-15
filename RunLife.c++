@@ -16,17 +16,16 @@ int main() {
     if (strcmp(line.c_str(), "Cell") == 0) {
       cin >> x;
       cin >> y;
-      Life<Cell> l(cin, x, y);
+      Life<Cell> l(x, y);
       getline(cin, line);
       l.is_hetero = true;
       l.populate_grid();
-      cout << "after Cell" << endl;
     } 
     else{
       if (strcmp(line.c_str(), "ConwayCell") == 0) {
         cin >> x;
         cin >> y;
-        Life<ConwayCell> l(cin, x, y);
+        Life<ConwayCell> l(x, y);
         getline(cin, line);
         l.is_hetero = false;
         l.populate_grid();
@@ -34,12 +33,11 @@ int main() {
       else if (strcmp(line.c_str(), "FredkinCell") == 0) {
         cin >> x;
         cin >> y;
-        Life<ConwayCell> l(cin, x, y);
+        Life<ConwayCell> l(x, y);
         getline(cin, line);
         l.is_hetero = false;
         l.populate_grid();
       }
-    cout << "after else" << endl;
     }
       
       //set up grid
