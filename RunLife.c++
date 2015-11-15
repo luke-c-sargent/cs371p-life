@@ -13,6 +13,8 @@ int main() {
   int x, y;
 
   while (getline(cin, line)) {
+//    cin >> x; 
+//    cin >> y;
     if (strcmp(line.c_str(), "Cell") == 0) {
       cin >> x;
       cin >> y;
@@ -28,15 +30,16 @@ int main() {
         Life<ConwayCell> l(x, y);
         getline(cin, line);
         l.is_hetero = false;
-        l.populate_homogeneous_grid();
+        l.populate_conway_grid();
       }
       else if (strcmp(line.c_str(), "FredkinCell") == 0) {
         cin >> x;
         cin >> y;
-        Life<ConwayCell> l(x, y);
+        Life<FredkinCell> l(x, y);
         getline(cin, line);
         l.is_hetero = false;
-        l.populate_homogeneous_grid();
+        l.populate_fredkin_grid();
+        l.print_grid();
       }
     }
       

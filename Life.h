@@ -65,10 +65,33 @@ class Life{
     }
   }
 	
-  void populate_homogeneous_grid(){
+  void populate_conway_grid(){
     string line;
-    while (getline(cin, line) && !line.empty()) {
+    for (int i = 0; i < x; i++){
+      getline(cin, line);
       cout << line << endl;
+      for (int j = 0; j < y; j++) {
+        ConwayCell cell = at(i, j);
+        if (line[j] == '*')
+          cell.alive = true;
+      }
+    }
+  }
+
+  void populate_fredkin_grid(){
+    string line;
+    for (int i = 0; i < x; i++){
+      getline(cin, line);
+      cout << "reference" << endl;
+      cout << line << endl;
+      for (int j = 0; j < y; j++) {
+        FredkinCell cell = at(i, j);
+        if (line[j] == '0')
+          cell.alive = true;
+        //cell.print_cell();
+        cout << line[j];
+      }
+      cout << endl;
     }
   }
 
@@ -87,6 +110,17 @@ class Life{
 
   pair<int, int> convert(int i) {
     return make_pair((i/y), (i-(i/y)*y));
+  }
+ 
+  void print_grid() {
+  cout << endl;
+    for (int i = 0; i < x; i++){
+      for (int j = 0; j < y; j++) {
+        at(i,j).print_cell();
+      }
+      cout << endl;
+    }
+    cout << endl;
   }
   
   //FRIEND TESTS

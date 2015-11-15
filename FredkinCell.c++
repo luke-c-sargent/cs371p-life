@@ -1,4 +1,4 @@
-#include "FredkinCell.h"
+/*#include "FredkinCell.h"
 
 FredkinCell::FredkinCell(bool living): 
 	alive(living),
@@ -7,3 +7,10 @@ FredkinCell::FredkinCell(bool living):
 void FredkinCell::act(){
 
 }
+
+void print_cell() {
+  if (alive)
+    cout << age;
+  else
+    cout << '-';
+} */

@@ -4,9 +4,9 @@
 
 class AbstractCell {
 	friend class Cell;
-	bool alive;
 	virtual void act()=0;
 public:
+	bool alive;
 	AbstractCell(){}
 	virtual ~AbstractCell(){}
 
