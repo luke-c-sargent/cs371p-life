@@ -1,8 +1,8 @@
-#pragma once
-
+//#pragma once
 #include "ConwayCell.h"
-ConwayCell::ConwayCell(bool living): 
-	alive(living){}
+ConwayCell::ConwayCell(bool living){
+    alive = living;
+  }
 
 //void ConwayCell::act(){
 

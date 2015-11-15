@@ -85,11 +85,11 @@ class Life{
       cout << "reference" << endl;
       cout << line << endl;
       for (int j = 0; j < y; j++) {
-        FredkinCell cell = at(i, j);
+        FredkinCell cell = at(i,j);
         if (line[j] == '0')
           cell.alive = true;
-        //cell.print_cell();
-        cout << line[j];
+        cell.print_cell();
+        //cout << line[j];
       }
       cout << endl;
     }

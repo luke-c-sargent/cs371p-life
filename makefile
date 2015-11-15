@@ -66,8 +66,8 @@ Darwin.log:
 Doxyfile:
 	doxygen -g
 
-RunLife: Life.h Life.c++ Cell.h Cell.c++ RunLife.c++
-	$(CXX) $(CXXFLAGS) Life.h Life.c++ Cell.h Cell.c++ RunLife.c++ -o RunLife
+RunLife: Life.h Life.c++ Cell.h Cell.c++ AbstractCell.h FredkinCell.h FredkinCell.c++ ConwayCell.h ConwayCell.c++ RunLife.c++
+	$(CXX) $(CXXFLAGS) Life.h Life.c++ Cell.h Cell.c++ AbstractCell.h FredkinCell.h FredkinCell.c++ ConwayCell.h ConwayCell.c++ RunLife.c++ -o RunLife
 
 RunLife.tmp: RunLife
 	./RunLife < RunLife.in > RunLife.tmp
