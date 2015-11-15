@@ -17,15 +17,17 @@ class Life{
 
   //constructor
   Life(int _x, int _y) :
-    grid(vector<CellType>((_x+2)*(_y+2)))
+    grid(vector<CellType>(_x*_y))
   {
-    x = _x+2;
-    y = _y+2;
+    x = _x;
+    y = _y;
     cin >> evolutions;
     cin >> frequency;
   cout << x << " " << y << " " << evolutions << " " << frequency << endl;
   }
+
   void populate_grid() {
+    populate_dead_cell_moat();
     if (is_hetero)
       populate_heterogeneous_grid();
     else
@@ -45,6 +47,24 @@ class Life{
       cout << line << endl;
     }
   }
+
+  CellType& at(int _x, int _y) {
+    int n = convert(_x, y, _y);
+    return grid[n];
+  }
+
+  CellType& at(int n) {
+    return grid[n];
+  }
+
+  int convert(int x, int y1, int y2) {
+    return x*y1+y2;
+  }
+
+  pair<int, int> convert(int i) {
+    return make_pair((i/y), (i-(i/y)*y));
+  }
+  
   //FRIEND TESTS
 	FRIEND_TEST(LifeFixture, Life_Constructor_1);
 };
