@@ -12,21 +12,21 @@ using namespace std;
 
 template<typename CellType>
 class Life{
-	int x,y,evolutions,frequency;
+	int grid_rows,grid_cols,evolutions,frequency;
 	vector<CellType> grid;
   
   public:
 	bool is_hetero;
 
   //constructor
-  Life(int _x, int _y) :
-    grid(vector<CellType>(_x*_y))
+  Life(int rows, int cols) :
+    grid(vector<CellType>(rows*cols))
   {
-    x = _x;
-    y = _y;
+    grid_rows = rows;
+    grid_cols = cols;
     cin >> evolutions;
     cin >> frequency;
-  cout << x << " " << y << " " << evolutions << " " << frequency << endl;
+  cout << grid_rows << " " << grid_cols << " " << evolutions << " " << frequency << endl;
   }
 
 /*
@@ -40,10 +40,10 @@ class Life{
 
   void populate_heterogeneous_grid(){
     string line;
-    for (int i = 0; i < x; i++){
+    for (int i = 0; i < grid_rows; i++){
       getline(cin, line);
 //      cout << line << endl;
-      for (int j = 0; j < y; j++) {
+      for (int j = 0; j < grid_cols; j++) {
         Cell cell = at(i, j);
         char ch = line[j];
         switch (ch) {
@@ -66,9 +66,9 @@ class Life{
 
   void populate_homogeneous_grid(){
     string line;
-    for (int i = 0; i < x; i++){
+    for (int i = 0; i < grid_rows; i++){
       getline(cin, line);
-      for (int j = 0; j < y; j++) {
+      for (int j = 0; j < grid_cols; j++) {
         if (line[j] == '0')
           at(i,j).alive = true;
         else if (line[j] == '*')
@@ -77,8 +77,8 @@ class Life{
     }
   }
 
-  CellType& at(int _x, int _y) {
-    int n = convert(_x, y, _y);
+  CellType& at(int rows, int cols) {
+    int n = convert(rows, cols);
     return grid[n];
   }
 
@@ -86,18 +86,18 @@ class Life{
     return grid[n];
   }
 
-  int convert(int x, int y1, int y2) {
-    return x*y1+y2;
+  int convert(int rows, int cols) {
+    return rows*grid_cols+cols;
   }
 
   pair<int, int> convert(int i) {
-    return make_pair((i/y), (i-(i/y)*y));
+    return make_pair((i/grid_cols), (i-(i/grid_cols)*grid_cols));
   }
  
   void print_grid() {
   cout << endl;
-    for (int i = 0; i < x; i++){
-      for (int j = 0; j < y; j++) {
+    for (int i = 0; i < grid_rows; i++){
+      for (int j = 0; j < grid_cols; j++) {
         at(i,j).print_cell();
       }
       cout << endl;
