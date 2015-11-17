@@ -11,3 +11,7 @@ Cell::~Cell(){
 void Cell::act(){
 	abstractcell_ptr->act();
 }
+
+AbstractCell* Cell::operator->() {
+  return abstractcell_ptr;
+} 

@@ -17,3 +17,7 @@ void FredkinCell::print_cell() {
   else
     cout << '-';
 }
+
+FredkinCell* FredkinCell::operator->() {
+  return this;
+}

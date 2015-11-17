@@ -15,3 +15,7 @@ void ConwayCell::print_cell(){
   else
     cout << '.';
 }
+
+ConwayCell* ConwayCell::operator->() {
+  return this;
+}

@@ -1,8 +1,6 @@
 //#pragma once
-#include <iostream>
 #include "AbstractCell.h"
 
-using namespace std;
 class FredkinCell: public AbstractCell{
   int age;
   
@@ -10,4 +8,5 @@ class FredkinCell: public AbstractCell{
 	  FredkinCell(bool living = false);
 	  void act();
     void print_cell();
+    FredkinCell* operator->();
 };

@@ -42,22 +42,20 @@ class Life{
     string line;
     for (int i = 0; i < grid_rows; i++){
       getline(cin, line);
-//      cout << line << endl;
       for (int j = 0; j < grid_cols; j++) {
-        Cell cell = at(i, j);
         char ch = line[j];
         switch (ch) {
           case ('.'):
-            cell.abstractcell_ptr = new ConwayCell(false);
+            at(i,j).abstractcell_ptr = new ConwayCell(false);
             break;
           case('*'):
-            cell.abstractcell_ptr = new ConwayCell(true);
+            at(i,j).abstractcell_ptr = new ConwayCell(true);
             break;
           case('-'):
-            cell.abstractcell_ptr = new FredkinCell(false);
+            at(i,j).abstractcell_ptr = new FredkinCell(false);
             break;
           case('0'):
-            cell.abstractcell_ptr = new FredkinCell(true);
+            at(i,j).abstractcell_ptr = new FredkinCell(true);
             break;
         }
       }
@@ -69,9 +67,7 @@ class Life{
     for (int i = 0; i < grid_rows; i++){
       getline(cin, line);
       for (int j = 0; j < grid_cols; j++) {
-        if (line[j] == '0')
-          at(i,j).alive = true;
-        else if (line[j] == '*')
+        if (line[j] == '0' || line[j] == '*')
           at(i,j).alive = true;
       }
     }
@@ -98,7 +94,7 @@ class Life{
   cout << endl;
     for (int i = 0; i < grid_rows; i++){
       for (int j = 0; j < grid_cols; j++) {
-        at(i,j).print_cell();
+        at(i,j)->print_cell();
       }
       cout << endl;
     }
