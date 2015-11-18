@@ -14,6 +14,8 @@ void Cell::act(){
     
 }
 
+void Cell::living(Locale l){}
+
 AbstractCell* Cell::operator->() {
   return abstractcell_ptr;
 } 

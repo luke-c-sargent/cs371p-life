@@ -4,12 +4,20 @@
 #include <iostream> 
 #include <string>
 #include "gtest/gtest_prod.h"
+
 #include "Cell.h"
 #include "FredkinCell.h"
 #include "ConwayCell.h"
 
 using namespace std;
 
+#ifndef LOCALE
+#define LOCALE
+struct Locale{
+    int n,ne,e,se,s,sw,w,nw;
+    Locale():n(0),ne(0),e(0),se(0),s(0),sw(0),w(0),nw(0){}
+};
+#endif
 template<typename CellType>
 class Life{
 	int grid_rows,grid_cols,evolutions,frequency;
@@ -99,6 +107,24 @@ class Life{
       cout << endl;
     }
     cout << endl;
+  }
+  
+  void step(int steps=1){
+    
+    for(int i=0; i < grid.size(); ++i){//going through the cells,
+        if(at(i)->alive){//if the cell is alive
+            Locale l; //get local info
+            l.n=at(i-grid_cols)->alive; //north = one row up
+            l.ne=at(i-grid_cols+1)->alive;
+            l.e=at(i+1)->alive; // east = one forward
+            l.se=at(i+1+grid_cols)->alive;
+            l.s=at(i+grid_cols)->alive; // south = one row down
+            l.sw=at(i+grid_cols-1)->alive;
+            l.w=at(i-1)->alive;// west = one back
+            l.nw=at(i-grid_cols-1)->alive;
+            at(i)->living(l);
+        }
+    }
   }
   
   //FRIEND TESTS

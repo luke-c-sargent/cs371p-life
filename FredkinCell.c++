@@ -22,6 +22,7 @@ void FredkinCell::act(){
             ++age;}
     }
 }
+void FredkinCell::living(Locale l){}
 
 void FredkinCell::print_cell() {
   if (alive)

@@ -2,6 +2,7 @@
 #define DEBUG true
 class AbstractCell {
 	friend class Cell;
+    
 	virtual void act()=0;
   	
 

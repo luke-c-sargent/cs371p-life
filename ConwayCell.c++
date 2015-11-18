@@ -32,3 +32,5 @@ void ConwayCell::print_cell(){
 ConwayCell* ConwayCell::operator->() {
   return this;
 }
+
+void ConwayCell::living(Locale l){}
