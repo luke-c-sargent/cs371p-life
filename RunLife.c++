@@ -17,6 +17,7 @@ int main() {
       l.is_hetero = true;
       l.populate_heterogeneous_grid();
       l.print_grid();
+      l.run_simulations();
       //run simulations
     } 
     else{

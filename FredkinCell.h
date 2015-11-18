@@ -17,5 +17,6 @@ class FredkinCell: public AbstractCell{
 	void act();
     void print_cell();
     void living(Locale);
+    void heterogeneous_grid_act();
     FredkinCell* operator->();
 };

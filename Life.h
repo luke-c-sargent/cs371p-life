@@ -109,7 +109,7 @@ class Life{
     cout << endl;
   }
   
-  void step(int steps=1){
+  void step(){ //int steps=1){
     int _x,_y;
     _x=_y=0;
     for(int i=0; i < grid.size(); ++i){//going through the cells,
@@ -140,7 +140,18 @@ class Life{
         }
     }
   }
+
+  void evolve() {
+    for (int i = 0; i < grid.size(); ++i) {
+      at(i)->act();
+    }
+  }
   
+  void run_simulations() {
+    step();
+    evolve();   
+    print_grid();
+  }
   //FRIEND TESTS
 	FRIEND_TEST(LifeFixture, Life_Constructor_1);
 };

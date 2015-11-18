@@ -22,13 +22,24 @@ void FredkinCell::act(){
             ++age;}
     }
 }
-void FredkinCell::living(Locale l){}
+void FredkinCell::living(Locale l){
+  living_neighbors += (l.n + l.e + l.s + l.w);
+}
 
 void FredkinCell::print_cell() {
   if (alive)
     cout << age;
   else
     cout << '-';
+}
+
+void FredkinCell::heterogeneous_grid_act(){
+  //possibly:
+
+ // if age = ...
+  // delete this;
+
+  // this = new ConwayCell(...)?
 }
 
 FredkinCell* FredkinCell::operator->() {

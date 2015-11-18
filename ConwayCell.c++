@@ -29,8 +29,14 @@ void ConwayCell::print_cell(){
     cout << '.';
 }
 
+void ConwayCell::heterogeneous_grid_act(){
+  act();
+}
+
 ConwayCell* ConwayCell::operator->() {
   return this;
 }
 
-void ConwayCell::living(Locale l){}
+void ConwayCell::living(Locale l){
+  living_neighbors += (l.n+l.ne+l.e+l.se+l.s+l.sw+l.w+l.nw);
+}
