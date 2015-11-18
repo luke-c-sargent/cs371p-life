@@ -1,6 +1,6 @@
 FILES :=                              \
     .travis.yml                       \
-    html                              \
+#    html                              \
 
 CEEPEEPEES := \
 	Life.h AbstractCell.h Cell.h FredkinCell.h ConwayCell.h \
@@ -57,16 +57,16 @@ status:
 	git remote -v
 	git status
 
-test: RunDarwin.tmp TestDarwin.tmp
+test: RunLife.tmp TestLife.tmp
 
 life-tests:
 	git clone https://github.com/cs371p-fall-2015/life-tests.git
 
-html: Doxyfile Darwin.h Darwin.c++ RunDarwin.c++ TestDarwin.c++
+html: Doxyfile Life.h Life.c++ RunLife.c++ TestLife.c++
 	doxygen Doxyfile
 
-Darwin.log:
-	git log > Darwin.log
+Life.log:
+	git log > Life.log
 
 Doxyfile:
 	doxygen -g
