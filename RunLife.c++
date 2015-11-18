@@ -30,7 +30,9 @@ int main() {
         l.is_hetero = false;
         l.populate_homogeneous_grid();
         l.print_grid();
+        l.run_simulations();
         //run simulations
+
       }
       else if (strcmp(line.c_str(), "FredkinCell") == 0) {
         cin >> rows >> cols;
@@ -39,6 +41,7 @@ int main() {
         l.is_hetero = false;
         l.populate_homogeneous_grid();
         l.print_grid();
+        l.run_simulations();
         //run simulations
       } 
     } 

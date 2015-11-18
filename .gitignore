@@ -3,6 +3,5 @@
 *.gcda
 *.gcno
 *.gcov
-RunLife.tmp
 RunLife
 TestLife
