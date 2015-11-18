@@ -2,6 +2,9 @@ FILES :=                              \
     .travis.yml                       \
     html                              \
 
+CEEPEEPEES := \
+	Life.h AbstractCell.h Cell.h FredkinCell.h ConwayCell.h \
+	FredkinCell.c++ ConwayCell.c++ Cell.c++
 
 CXX        := g++-4.8
 CXXFLAGS   := -pedantic -std=c++11 -Wall
@@ -34,6 +37,8 @@ clean:
 	rm -f *.gcno
 	rm -f *.gcov
 	rm -f *.tmp
+	rm -f TestLife
+	rm -f RunLife
 
 config:
 	git config -l
@@ -73,11 +78,11 @@ RunLife.tmp: RunLife
 	./RunLife < RunLife.in > RunLife.tmp
 #	diff RunDarwin.tmp RunDarwin.out
 
-TestLife: Life.h Life.c++ TestLife.c++ Cell.h Cell.c++
-	$(CXX) $(CXXFLAGS) $(GCOVFLAGS) Life.h Life.c++ TestLife.c++ Cell.h Cell.c++ -o TestLife $(LDFLAGS)
+TestLife:
+	$(CXX) $(CXXFLAGS) $(GCOVFLAGS) $(CEEPEEPEES) TestLife.c++ -o TestLife $(LDFLAGS)
 
-TestDarwin.tmp: TestDarwin
-	$(VALGRIND) ./TestDarwin                                       >  TestDarwin.tmp 2>&1
-	$(GCOV) -b Darwin.c++     | grep -A 5 "File 'Darwin.c++'"     >> TestDarwin.tmp
-	$(GCOV) -b TestDarwin.c++ | grep -A 5 "File 'TestDarwin.c++'" >> TestDarwin.tmp
-	cat TestDarwin.tmp
+TestLife.tmp: TestLife
+	$(VALGRIND) ./TestLife                                       >  TestLife.tmp 2>&1
+	$(GCOV) -b TestLife.c++     | grep -A 5 "File 'Life.h'"     >> TestLife.tmp
+	$(GCOV) -b TestLife.c++ | grep -A 5 "File 'TestLife.c++'" >> TestLife.tmp
+	cat TestLife.tmp
