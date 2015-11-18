@@ -110,19 +110,33 @@ class Life{
   }
   
   void step(int steps=1){
-    
+    int _x,_y;
+    _x=_y=0;
     for(int i=0; i < grid.size(); ++i){//going through the cells,
         if(at(i)->alive){//if the cell is alive
+            _x=grid.size()%grid_cols; // get coords
+            _y=grid.size()/grid_cols;
             Locale l; //get local info
-            l.n=at(i-grid_cols)->alive; //north = one row up
-            l.ne=at(i-grid_cols+1)->alive;
-            l.e=at(i+1)->alive; // east = one forward
-            l.se=at(i+1+grid_cols)->alive;
-            l.s=at(i+grid_cols)->alive; // south = one row down
-            l.sw=at(i+grid_cols-1)->alive;
-            l.w=at(i-1)->alive;// west = one back
-            l.nw=at(i-grid_cols-1)->alive;
+            if(i>=grid_cols){ // if its not a top row, can check northern values
+                l.n=at(i-grid_cols)->alive; //north = one row up
+                if(_x) // if x is not 0, can go backwards
+                    l.nw=at(i-grid_cols-1)->alive;
+                else if( _x < ( grid_cols -1) )// if its not a eastmost cell
+                    l.ne=at(i-grid_cols+1)->alive;
+            }
+            if(_y != grid_rows - 1){ // if its not a bottom row, can check southern values
+                l.s=at(i+grid_cols)->alive; // south = one row down
+                if(_x)
+                    l.sw=at(i+grid_cols-1)->alive;
+                else if( _x < ( grid_cols -1) )
+                    l.se=at(i+1+grid_cols)->alive;
+            }
+            if(_x)
+                l.w=at(i-1)->alive;// west = one back
+            if(_x < grid_cols)
+                l.e=at(i+1)->alive; // east = one forward
             at(i)->living(l);
+            _x=_y=0;// reset values
         }
     }
   }
