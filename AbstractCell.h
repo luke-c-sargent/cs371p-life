@@ -16,7 +16,7 @@ class AbstractCell {
 
   public:
 	virtual void act()=0;
-  	int living_neighbors;
+  int living_neighbors;
 	bool alive;
 	AbstractCell(){}
 	virtual ~AbstractCell(){}
