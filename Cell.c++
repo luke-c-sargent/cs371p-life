@@ -9,7 +9,9 @@ Cell::~Cell(){
 }
 
 void Cell::act(){
-	abstractcell_ptr->act();
+    abstractcell_ptr->act();
+    //if(abstractcell_ptr->);
+    
 }
 
 AbstractCell* Cell::operator->() {
