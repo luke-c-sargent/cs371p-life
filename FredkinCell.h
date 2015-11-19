@@ -13,8 +13,8 @@ class FredkinCell: public AbstractCell{
   int age;
   
   public:
-	  FredkinCell(bool living = false);
-	  int act();
+	FredkinCell(bool living = false);
+	int act();
     void print_cell();
     void living(Locale);
     bool heterogeneous_grid_act();

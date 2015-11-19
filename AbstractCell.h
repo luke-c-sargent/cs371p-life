@@ -1,5 +1,5 @@
 #pragma once
-#define DEBUG true
+#define DEBUG false
 
 #ifndef LOCALE
 #define LOCALE
