@@ -48,7 +48,7 @@ TEST(LifeFixture, Life_set_living_1){
 }
 
 TEST(LifeFixture, Life_set_living_2){
-    istringstream s("1\n1***\n*.*\n***\n");
+    istringstream s("1\n1\n***\n*.*\n***\n");
     Life<ConwayCell> l(3,3,s);
     l.populate_homogeneous_grid();
     l.print_grid();

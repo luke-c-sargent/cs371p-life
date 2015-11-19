@@ -1,7 +1,7 @@
 #pragma once
 
 #ifndef DEBUG
-#define DEBUG false
+#define DEBUG true
 #endif
 
 #ifndef LOCALE
@@ -15,8 +15,6 @@ struct Locale{
 class AbstractCell {
 	friend class Cell;
     
-  	
-
   public:
 	virtual int act()=0;
   int living_neighbors;

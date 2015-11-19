@@ -38,9 +38,19 @@ class Life{
   {
     grid_rows = rows;
     grid_cols = cols;
-    input_stream >> evolutions;
-    input_stream >> frequency;
-    cout << rows << "x" << cols << " ***\n" << endl;
+    string line;
+    
+    getline(input_stream, line);
+    if(DEBUG){cout << "evos:"<<line<<endl;}
+    evolutions=1;//stoi(line);
+    getline(input_stream, line);
+    if(DEBUG){cout << "freqs:"<<line<<endl;}
+    frequency=1;//stoi(line);
+    
+    //getline(input_stream, line);
+    //if(DEBUG){cout << "next:"<<line<<endl;}
+    //exit(0);
+    
     generation = 0;
     population = 0;
     if(DEBUG){cout<<"L():E:"<<evolutions<<" F:"<<frequency<<endl;}
@@ -74,7 +84,7 @@ class Life{
 
   void populate_homogeneous_grid(){
     string line;
-//    getline(input_stream,line);
+    //getline(input_stream,line);
     for (int i = 0; i < grid_rows; i++){
       getline(input_stream, line);
       if(DEBUG){cout<<"L-Hom:"<<line<<endl;}
@@ -192,7 +202,6 @@ class Life{
   }
   
   void evolve() {
-    print_grid();
     while (generation < evolutions) {
       step();
       print_grid();
