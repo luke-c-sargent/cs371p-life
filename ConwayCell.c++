@@ -4,6 +4,7 @@
 using namespace std;
 ConwayCell::ConwayCell(bool living){
     alive = living;
+    living_neighbors=0;
 }
 
 void ConwayCell::act(){

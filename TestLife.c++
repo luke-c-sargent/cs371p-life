@@ -34,6 +34,17 @@ using namespace std;
 TEST(LifeFixture, Life_Constructor_1){
     istringstream s("1\n1\n...\n...\n...\n");
     Life<ConwayCell> l(3,3,s);
+    l.print_grid();
+    l.set_living();
+    bool all_correct=true;
+    
+    for(auto c : l.grid){
+        if(c.living_neighbors){
+            cout << c.living_neighbors;
+            all_correct=false;
+            break;}}
+            
+    ASSERT_TRUE(all_correct);
 }
 //ConwayCell--------------------------------------
 //  Constructors

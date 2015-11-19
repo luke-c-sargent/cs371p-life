@@ -4,8 +4,9 @@
 using namespace std;
 
 FredkinCell::FredkinCell(bool living): 
-	age(0) {
-  alive = living; }
+	age(0){
+  alive = living; 
+  living_neighbors=0;}
 
 void FredkinCell::act(){
 //cout << "here" << endl;
