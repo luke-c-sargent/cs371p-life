@@ -10,10 +10,7 @@ ConwayCell::ConwayCell(bool living){
 }
 
 int ConwayCell::act(){
-<<<<<<< HEAD
-=======
     int delta=0;
->>>>>>> 6e47f4f8a602ac5d6c95b2e7fffc8c8013cd0811
     //rules:
     //1)a dead cell becomes a live cell, if exactly 3 neighbors are alive
     if(!alive){ // if its dead

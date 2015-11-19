@@ -38,13 +38,8 @@ class Life{
     grid_cols = cols;
     input_stream >> evolutions;
     input_stream >> frequency;
-<<<<<<< HEAD
     generation = 0;
     population = 0;
-=======
-    if(DEBUG)
-        cout << grid_rows << " " << grid_cols << " " << evolutions << " " << frequency << endl;
->>>>>>> 6e47f4f8a602ac5d6c95b2e7fffc8c8013cd0811
   }
 
   void populate_heterogeneous_grid(){
@@ -82,10 +77,7 @@ class Life{
       for (int j = 0; j < grid_cols; j++) {
         if (line[j] == '0' || line[j] == '*'){
           at(i,j).alive = true;
-<<<<<<< HEAD
           ++population;
-=======
->>>>>>> 6e47f4f8a602ac5d6c95b2e7fffc8c8013cd0811
         }
       }
     }

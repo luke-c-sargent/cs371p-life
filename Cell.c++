@@ -11,18 +11,14 @@ Cell::~Cell(){
 }
 
 int Cell::act(){
-<<<<<<< HEAD
-//  cout << "in cell act" << endl;
-  abstractcell_ptr->heterogeneous_grid_act();
-//    abstractcell_ptr->act();
-    //if(abstractcell_ptr->);
-    
-=======
+  //abstractcell_ptr->heterogeneous_grid_act();
+/*    
   if(abstractcell_ptr->heterogeneous_grid_act()){
     abstractcell_ptr = new ConwayCell(true);
     return 0;
   } else { return abstractcell_ptr->act();}
->>>>>>> 6e47f4f8a602ac5d6c95b2e7fffc8c8013cd0811
+*/
+  return 0;
 }
 
 
