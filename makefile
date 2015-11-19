@@ -78,6 +78,10 @@ RunLife.tmp: RunLife
 	./RunLife < RunLife.in > RunLife.tmp
 #	diff RunDarwin.tmp RunDarwin.out
 
+cleantests:
+	make clean
+	make TestLife
+
 TestLife:
 	$(CXX) $(CXXFLAGS) $(GCOVFLAGS) $(CEEPEEPEES) TestLife.c++ -o TestLife $(LDFLAGS)
 

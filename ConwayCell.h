@@ -2,6 +2,10 @@
 
 #include "AbstractCell.h"
 
+#ifndef DEBUG
+#define DEBUG true
+#endif
+
 #ifndef LOCALE
 #define LOCALE
 struct Locale{

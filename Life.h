@@ -1,3 +1,4 @@
+
 //#pragma once
 
 #include <vector>
@@ -9,7 +10,9 @@
 #include "FredkinCell.h"
 #include "ConwayCell.h"
 
-#define DEBUG false
+#ifndef DEBUG
+#define DEBUG true
+#endif
 
 using namespace std;
 
@@ -39,6 +42,7 @@ class Life{
     input_stream >> frequency;
     generation = 0;
     population = 0;
+    if(DEBUG){cout<<"L():E:"<<evolutions<<" F:"<<frequency<<endl;}
   }
 
   void populate_heterogeneous_grid(){
@@ -69,8 +73,10 @@ class Life{
 
   void populate_homogeneous_grid(){
     string line;
+    getline(input_stream,line);
     for (int i = 0; i < grid_rows; i++){
       getline(input_stream, line);
+      if(DEBUG){cout<<"L-Hom:"<<line<<endl;}
       for (int j = 0; j < grid_cols; j++) {
         if (line[j] == '0' || line[j] == '*'){
           at(i,j).alive = true;

@@ -1,7 +1,9 @@
 #include <iostream>
 #include "ConwayCell.h"
 
-#define DEBUG false
+#ifndef DEBUG
+#define DEBUG true
+#endif
 
 using namespace std;
 ConwayCell::ConwayCell(bool living){
