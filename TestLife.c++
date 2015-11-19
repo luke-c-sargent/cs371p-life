@@ -31,21 +31,30 @@ using namespace std;
 	ASSERT_EQ(3,l.evolutions);
 	ASSERT_EQ(4,l.frequency);
 }*/
-TEST(LifeFixture, Life_Constructor_1){
+TEST(LifeFixture, Life_set_living_1){
     istringstream s("1\n1\n...\n...\n...\n");
     Life<ConwayCell> l(3,3,s);
-    l.print_grid();
     l.set_living();
     bool all_correct=true;
     
-    for(auto c : l.grid){
+    for(int i=0; i < 9; i ++){
+        auto c = l.at(i);
         if(c.living_neighbors){
-            cout << c.living_neighbors;
             all_correct=false;
             break;}}
             
     ASSERT_TRUE(all_correct);
 }
+
+TEST(LifeFixture, Life_set_living_2){
+    istringstream s("1\n1\n***\n*.*\n***\n");
+    Life<ConwayCell> l(3,3,s);
+    l.print_grid();
+    l.set_living();
+        
+    ASSERT_EQ(l.at(4).living_neighbors,8);
+}
+
 //ConwayCell--------------------------------------
 //  Constructors
 TEST(LifeFixture, Conway_Constructor_1){

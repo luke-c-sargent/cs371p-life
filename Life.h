@@ -9,6 +9,8 @@
 #include "FredkinCell.h"
 #include "ConwayCell.h"
 
+#define DEBUG false
+
 using namespace std;
 
 #ifndef LOCALE
@@ -117,6 +119,7 @@ class Life{
   void set_living(){
     int cols, rows;
     cols=rows=0;
+    if(DEBUG){cout<<"SET LIVING:"<<endl;}
     for(int i=0; i < grid.size(); ++i){//going through the cells,
         //if(at(i)->alive){
         
@@ -125,8 +128,9 @@ class Life{
             pair<int,int> pair = convert(i);
             rows = pair.first;
             cols = pair.second;
+            if(DEBUG){cout<<"--["<<rows<<", "<<cols<<"]";}
             Locale l; //get local info
- //           if(i>=grid_cols){ // if its not a top row, can check northern values
+ //         
             if (rows > 0) {
                 l.n=at(rows-1,cols)->alive;
 //              l.n=at(i-grid_cols)->alive; //north = one row up
@@ -178,14 +182,13 @@ class Life{
         at(i).act();
     }
   }
-
+  
   void evolve() {
     while (generation < evolutions) {
       step();
       print_grid();
     }  
   }
-
   //FRIEND TESTS
 	FRIEND_TEST(LifeFixture, Life_Constructor_1);
 };
