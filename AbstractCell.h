@@ -15,12 +15,12 @@ class AbstractCell {
   	
 
   public:
-	virtual void act()=0;
+	virtual int act()=0;
   int living_neighbors;
 	bool alive;
 	AbstractCell(){}
 	virtual ~AbstractCell(){}
 	virtual void print_cell() = 0;
   virtual void living(Locale l) = 0;
-  virtual void heterogeneous_grid_act() = 0;
+  virtual bool heterogeneous_grid_act() = 0;
 };
