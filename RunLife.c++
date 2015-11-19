@@ -18,7 +18,7 @@ int main() {
       l.is_hetero = true;
       l.populate_heterogeneous_grid();
       l.print_grid();
-      l.run_simulations();
+      l.evolve();
       //run simulations
     } 
     else{
@@ -31,7 +31,7 @@ int main() {
         l.is_hetero = false;
         l.populate_homogeneous_grid();
         l.print_grid();
-        l.run_simulations();
+        l.evolve();
         //run simulations
 
       }
@@ -43,7 +43,7 @@ int main() {
         l.is_hetero = false;
         l.populate_homogeneous_grid();
         l.print_grid();
-        l.run_simulations();
+        l.evolve();
         //run simulations
       } 
     } 

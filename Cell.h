@@ -22,7 +22,7 @@ public:
 	AbstractCell* abstractcell_ptr;
 	Cell(AbstractCell* = nullptr);
     ~Cell();
-    void act();
+    int act();
     AbstractCell* operator -> ();
 };
 

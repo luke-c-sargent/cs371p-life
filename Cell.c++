@@ -10,7 +10,7 @@ Cell::~Cell(){
 	delete abstractcell_ptr;
 }
 
-void Cell::act(){
+int Cell::act(){
 //  cout << "in cell act" << endl;
   abstractcell_ptr->heterogeneous_grid_act();
 //    abstractcell_ptr->act();

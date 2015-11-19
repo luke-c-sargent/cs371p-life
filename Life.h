@@ -20,7 +20,7 @@ struct Locale{
 #endif
 template<typename CellType>
 class Life{
-	int grid_rows,grid_cols,evolutions,frequency;
+	int grid_rows,grid_cols,evolutions,frequency,generation,population;
 	vector<CellType> grid;
     istream& input_stream;
   public:
@@ -35,17 +35,9 @@ class Life{
     grid_cols = cols;
     input_stream >> evolutions;
     input_stream >> frequency;
-    cout << grid_rows << " " << grid_cols << " " << evolutions << " " << frequency << endl;
+    generation = 0;
+    population = 0;
   }
-
-/*
-  void populate_grid() {
-    if (is_hetero)
-      populate_heterogeneous_grid();
-    else
-      populate_homogeneous_grid();
-  }
-*/
 
   void populate_heterogeneous_grid(){
     string line;
@@ -59,12 +51,14 @@ class Life{
             break;
           case('*'):
             at(i,j).abstractcell_ptr = new ConwayCell(true);
+            ++population;
             break;
           case('-'):
             at(i,j).abstractcell_ptr = new FredkinCell(false);
             break;
           case('0'):
             at(i,j).abstractcell_ptr = new FredkinCell(true);
+            ++population;
             break;
         }
       }
@@ -76,8 +70,10 @@ class Life{
     for (int i = 0; i < grid_rows; i++){
       getline(input_stream, line);
       for (int j = 0; j < grid_cols; j++) {
-        if (line[j] == '0' || line[j] == '*')
+        if (line[j] == '0' || line[j] == '*'){
           at(i,j).alive = true;
+          ++population;
+        }
       }
     }
   }
@@ -100,7 +96,7 @@ class Life{
   }
  
   void print_grid() {
-  cout << endl;
+    cout << "Generation = " << generation << ", Population = " << population << "." << endl;
     for (int i = 0; i < grid_rows; i++){
       for (int j = 0; j < grid_cols; j++) {
         at(i,j)->print_cell();
@@ -111,8 +107,11 @@ class Life{
   }
   
   void step(){ //int steps=1){
-    set_living();
-    process_cells();
+    for (int i = 0; i < frequency; ++i){
+      set_living();
+      process_cells();
+      ++generation;
+      }
   }
 
   void set_living(){
@@ -175,24 +174,18 @@ class Life{
   
   void process_cells(){
     for(int i=0; i < grid.size(); ++i){//going through the cells,
-        at(i)->act();
+        //at(i)->act();
+        at(i).act();
     }
   }
-  
+
   void evolve() {
-    for (int i = 0; i < grid.size(); ++i) {
-      at(i).act();
-    }
-  }
-  
-  void run_simulations() {
-//    for (int i = 0; i < evolutions; ++i){
+    while (generation < evolutions) {
       step();
-      evolve();   
-//      if (i % frequency == 0)
-        print_grid();
-//    }
+      print_grid();
+    }  
   }
+
   //FRIEND TESTS
 	FRIEND_TEST(LifeFixture, Life_Constructor_1);
 };

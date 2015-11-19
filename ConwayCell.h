@@ -13,7 +13,7 @@ struct Locale{
 class ConwayCell: public AbstractCell{
   public:
   ConwayCell(bool living = false);
-  void act();
+  int act();
   void living(Locale);
   void print_cell();
   void heterogeneous_grid_act();

@@ -8,7 +8,7 @@ FredkinCell::FredkinCell(bool living):
   alive = living; 
   living_neighbors=0;}
 
-void FredkinCell::act(){
+int FredkinCell::act(){
 //cout << "here" << endl;
     //rules:
     //1)a dead cell becomes a live cell, if 1 or 3 neighbors are alive
