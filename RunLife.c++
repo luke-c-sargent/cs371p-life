@@ -8,9 +8,7 @@ int main() {
   string line;
   int rows, cols;
   while (getline(cin, line)) {
-//    cout << "line:" << line << endl;
     if (strcmp(line.c_str(), "Cell") == 0) {
-      cout << "Cell" << endl; 
       cin >> rows;
       cin >> cols;
       Life<Cell> l(rows, cols);
@@ -18,12 +16,10 @@ int main() {
       l.is_hetero = true;
       l.populate_heterogeneous_grid();
       l.print_grid();
-      l.evolve();
-      //run simulations
+      l.evolve(); //run simulations
     } 
     else{
       if (strcmp(line.c_str(), "ConwayCell") == 0) {
-        cout << "ConwayCell" << endl;
         cin >> rows; 
         cin >> cols;
         Life<ConwayCell> l(rows, cols);
@@ -31,20 +27,16 @@ int main() {
         l.is_hetero = false;
         l.populate_homogeneous_grid();
         l.print_grid();
-        l.evolve();
-        //run simulations
-
+        l.evolve(); //run simulations
       }
       else if (strcmp(line.c_str(), "FredkinCell") == 0) {
-        cout << "FredkinCell" << endl;
         cin >> rows >> cols;
         Life<FredkinCell> l(rows, cols);
         getline(cin, line);
         l.is_hetero = false;
         l.populate_homogeneous_grid();
         l.print_grid();
-        l.evolve();
-        //run simulations
+        l.evolve(); //run simulations
       } 
     } 
   }

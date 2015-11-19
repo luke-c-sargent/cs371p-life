@@ -179,7 +179,8 @@ class Life{
   void process_cells(){
     for(int i=0; i < grid.size(); ++i){//going through the cells,
         //at(i)->act();
-        at(i).act();
+        int delta = at(i).act();
+        population += delta;
     }
   }
   
