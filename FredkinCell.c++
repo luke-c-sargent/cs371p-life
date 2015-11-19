@@ -24,7 +24,8 @@ int FredkinCell::act(){
             alive=false;
             age=0;
             delta = -1;
-        }else{
+        }else
+         {
             ++age;}
     }
     //reset living neighbors value for next pass
@@ -47,18 +48,9 @@ void FredkinCell::print_cell() {
 }
 
 bool FredkinCell::heterogeneous_grid_act(){
-//cout << "in hetero act" << endl;
-  //possibly:
-
- // if age = ...
-  // delete this;
-  //  if(age==2)
-//        delete this;
-//        return true;
-//    }else act();
-  //return false;
-  // this = new ConwayCell(...)?
-  return (age == 2);
+  // we have to return false if the cell would die, and true if the cell
+  //would live and is to turn 2.
+  return (age == 1 && !((living_neighbors%2 == 0) && (living_neighbors < 5)));
 }
 
 FredkinCell* FredkinCell::operator->() {
