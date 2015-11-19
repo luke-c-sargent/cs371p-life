@@ -22,19 +22,20 @@ template<typename CellType>
 class Life{
 	int grid_rows,grid_cols,evolutions,frequency;
 	vector<CellType> grid;
-  
+    istream& input_stream;
   public:
 	bool is_hetero;
 
   //constructor
-  Life(int rows, int cols) :
-    grid(vector<CellType>(rows*cols))
+  Life(int rows, int cols, istream& is=cin) :
+    grid(vector<CellType>(rows*cols)),
+    input_stream(is)
   {
     grid_rows = rows;
     grid_cols = cols;
-    cin >> evolutions;
-    cin >> frequency;
-  cout << grid_rows << " " << grid_cols << " " << evolutions << " " << frequency << endl;
+    input_stream >> evolutions;
+    input_stream >> frequency;
+    cout << grid_rows << " " << grid_cols << " " << evolutions << " " << frequency << endl;
   }
 
 /*
@@ -49,7 +50,7 @@ class Life{
   void populate_heterogeneous_grid(){
     string line;
     for (int i = 0; i < grid_rows; i++){
-      getline(cin, line);
+      getline(input_stream, line);
       for (int j = 0; j < grid_cols; j++) {
         char ch = line[j];
         switch (ch) {
@@ -73,7 +74,7 @@ class Life{
   void populate_homogeneous_grid(){
     string line;
     for (int i = 0; i < grid_rows; i++){
-      getline(cin, line);
+      getline(input_stream, line);
       for (int j = 0; j < grid_cols; j++) {
         if (line[j] == '0' || line[j] == '*')
           at(i,j).alive = true;
@@ -110,10 +111,16 @@ class Life{
   }
   
   void step(){ //int steps=1){
+    set_living();
+    process_cells();
+  }
+
+  void set_living(){
     int cols, rows;
     cols=rows=0;
     for(int i=0; i < grid.size(); ++i){//going through the cells,
-        if(at(i)->alive){//if the cell is alive
+        //if(at(i)->alive){
+        
             //_x=grid.size()%grid_cols; // get coords
             //_y=grid.size()/grid_cols;
             pair<int,int> pair = convert(i);
@@ -162,10 +169,16 @@ class Life{
               l.e = at(rows, cols+1)->alive;
             at(i)->living(l);
 //            rows=cols=0;
+//}
       }
+  }
+  
+  void process_cells(){
+    for(int i=0; i < grid.size(); ++i){//going through the cells,
+        at(i)->act();
     }
   }
-
+  
   void evolve() {
     for (int i = 0; i < grid.size(); ++i) {
       at(i).act();

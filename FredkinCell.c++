@@ -22,14 +22,20 @@ void FredkinCell::act(){
         }else{
             ++age;}
     }
+    //reset living neighbors value for next pass
+    living_neighbors=0;
 }
 void FredkinCell::living(Locale l){
   living_neighbors += (l.n + l.e + l.s + l.w);
 }
 
 void FredkinCell::print_cell() {
-  if (alive)
-    cout << age;
+  if (alive){
+    if(age<10)
+        cout << age;
+    else
+        cout << "+";
+  }
   else
     cout << '-';
 }

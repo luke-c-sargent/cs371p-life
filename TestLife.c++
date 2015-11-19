@@ -31,7 +31,10 @@ using namespace std;
 	ASSERT_EQ(3,l.evolutions);
 	ASSERT_EQ(4,l.frequency);
 }*/
-
+TEST(LifeFixture, Life_Constructor_1){
+    istringstream s("1\n1\n...\n...\n...\n");
+    Life<ConwayCell> l(3,3,s);
+}
 //ConwayCell--------------------------------------
 //  Constructors
 TEST(LifeFixture, Conway_Constructor_1){
