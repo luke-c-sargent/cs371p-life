@@ -52,12 +52,13 @@ bool FredkinCell::heterogeneous_grid_act(){
 
  // if age = ...
   // delete this;
-    if(age==2){
-        delete this;
-        return true;
-    }else act();
-    return false;
+  //  if(age==2)
+//        delete this;
+//        return true;
+//    }else act();
+  //return false;
   // this = new ConwayCell(...)?
+  return (age == 2);
 }
 
 FredkinCell* FredkinCell::operator->() {

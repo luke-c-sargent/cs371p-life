@@ -12,12 +12,12 @@ Cell::~Cell(){
 
 int Cell::act(){
   //abstractcell_ptr->heterogeneous_grid_act();
-/*    
   if(abstractcell_ptr->heterogeneous_grid_act()){
+    delete abstractcell_ptr;
     abstractcell_ptr = new ConwayCell(true);
     return 0;
   } else { return abstractcell_ptr->act();}
-*/
+
   return 0;
 }
 
