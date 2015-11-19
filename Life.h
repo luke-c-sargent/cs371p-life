@@ -10,9 +10,9 @@
 #include "FredkinCell.h"
 #include "ConwayCell.h"
 
-#ifndef DEBUG
-#define DEBUG true
-#endif
+//#ifndef DEBUG
+//#define DEBUG true
+//#endif
 
 using namespace std;
 

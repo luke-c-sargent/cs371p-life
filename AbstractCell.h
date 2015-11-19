@@ -1,7 +1,7 @@
 #pragma once
 
 #ifndef DEBUG
-#define DEBUG true
+#define DEBUG false
 #endif
 
 #ifndef LOCALE
