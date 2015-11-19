@@ -16,6 +16,6 @@ class ConwayCell: public AbstractCell{
   int act();
   void living(Locale);
   void print_cell();
-  void heterogeneous_grid_act();
+  bool heterogeneous_grid_act();
   ConwayCell* operator ->();
 };

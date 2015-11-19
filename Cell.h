@@ -2,7 +2,7 @@
 
 #include "AbstractCell.h"
 
-/*
+
 #ifndef LOCALE
 #define LOCALE
 
@@ -11,14 +11,15 @@ struct Locale{
     Locale():n(0),ne(0),e(0),se(0),s(0),sw(0),w(0),nw(0){}
 }; 
 #endif
-*/
+
+#include "ConwayCell.h"
 
 class Cell{
 	friend class FredkinCell;
 	friend class ConwayCell;
 
 public:	
-//    void living(Locale);
+    void living(Locale);
 	AbstractCell* abstractcell_ptr;
 	Cell(AbstractCell* = nullptr);
     ~Cell();

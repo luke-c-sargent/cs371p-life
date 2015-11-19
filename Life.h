@@ -9,6 +9,8 @@
 #include "FredkinCell.h"
 #include "ConwayCell.h"
 
+#define DEBUG true
+
 using namespace std;
 
 #ifndef LOCALE
@@ -28,21 +30,28 @@ class Life{
 
   //constructor
   Life(int rows, int cols, istream& is=cin) :
-    grid(vector<CellType>(rows*cols)),
+    //grid(vector<CellType>(rows*cols)),
     input_stream(is)
   {
+    grid.reserve(rows*cols);
     grid_rows = rows;
     grid_cols = cols;
     input_stream >> evolutions;
     input_stream >> frequency;
+<<<<<<< HEAD
     generation = 0;
     population = 0;
+=======
+    if(DEBUG)
+        cout << grid_rows << " " << grid_cols << " " << evolutions << " " << frequency << endl;
+>>>>>>> 6e47f4f8a602ac5d6c95b2e7fffc8c8013cd0811
   }
 
   void populate_heterogeneous_grid(){
     string line;
     for (int i = 0; i < grid_rows; i++){
       getline(input_stream, line);
+      if(DEBUG){cout<<"line gotten from hetero grid:\n   "<<line<<endl;}
       for (int j = 0; j < grid_cols; j++) {
         char ch = line[j];
         switch (ch) {
@@ -69,10 +78,14 @@ class Life{
     string line;
     for (int i = 0; i < grid_rows; i++){
       getline(input_stream, line);
+      if(DEBUG){cout<<"line gotten from homogenous grid:\n   "<<line<<endl;}
       for (int j = 0; j < grid_cols; j++) {
         if (line[j] == '0' || line[j] == '*'){
           at(i,j).alive = true;
+<<<<<<< HEAD
           ++population;
+=======
+>>>>>>> 6e47f4f8a602ac5d6c95b2e7fffc8c8013cd0811
         }
       }
     }
@@ -117,6 +130,7 @@ class Life{
   void set_living(){
     int cols, rows;
     cols=rows=0;
+    if(DEBUG){cout<<"SET LIVING:"<<endl;}
     for(int i=0; i < grid.size(); ++i){//going through the cells,
         //if(at(i)->alive){
         
@@ -125,34 +139,36 @@ class Life{
             pair<int,int> pair = convert(i);
             rows = pair.first;
             cols = pair.second;
+            if(DEBUG){cout<<"--["<<rows<<", "<<cols<<"]";}
             Locale l; //get local info
- //           if(i>=grid_cols){ // if its not a top row, can check northern values
+ //         
             if (rows > 0) {
                 l.n=at(rows-1,cols)->alive;
-//              l.n=at(i-grid_cols)->alive; //north = one row up
-//                if(_x) // if x is not 0, can go backwards
-//                  l.nw=at(i-grid_cols-1)->alive;
-                if (cols > 0)
-                  l.nw = at(rows-1,cols-1)->alive;
-//                else if( _x < ( grid_cols -1) )// if its not a eastmost cell
-                if(cols < grid_cols-1)// if its not a eastmost cell
-//                    l.ne=at(i-grid_cols+1)->alive;
-                    l.ne=at(rows-1, cols+1)->alive;
-            }
-//            if(_y != grid_rows - 1){ // if its not a bottom row, can check southern values
-            if (rows < grid_rows-1){
-//                l.s=at(i+grid_cols)->alive; // south = one row down
-              l.s = at(rows+1, cols)->alive;
-//                if(_x)
-            
-//                    l.sw=at(i+grid_cols-1)->alive;
-              if (cols > 0)
-                l.sw = at(rows+1, cols-1)->alive;
+                if(DEBUG){cout<<"n:"<<l.n<<"-";}
 
-//                else if( _x < ( grid_cols -1) )
-//                    l.se=at(i+1+grid_cols)->alive;
-              if (cols < grid_cols-1)
+                if (cols > 0){
+                  l.nw = at(rows-1,cols-1)->alive;
+                  if(DEBUG){cout<<"nw:"<<l.nw<<"-";}
+                }
+                if(cols < grid_cols-1){// if its not a eastmost cell
+                    l.ne=at(rows-1, cols+1)->alive;
+                    if(DEBUG){cout<<"ne:"<<l.ne<<"-";}
+                }
+            }
+            
+            if (rows < grid_rows-1){
+              l.s = at(rows+1, cols)->alive;
+              if(DEBUG){cout<<"s:"<<l.s<<"-";}
+              if (cols > 0){
+                l.sw = at(rows+1, cols-1)->alive;
+                if(DEBUG){cout<<"sw:"<<l.sw<<"-";}
+                
+              }
+
+              if (cols < grid_cols-1){
                 l.se = at(rows+1, cols+1)->alive;
+                if(DEBUG){cout<<"se:"<<l.se<<"-";}
+                }
             }
 /*            
             if(_x)
@@ -162,10 +178,14 @@ class Life{
             at(i)->living(l);
             _x=_y=0;// reset values
 */
-            if (cols > 0)
+            if (cols > 0){
               l.w = at(rows, cols-1)->alive;
-            if (cols < grid_cols-1)
+              if(DEBUG){cout<<"w:"<<l.w<<"-";}
+              }
+            if (cols < grid_cols-1){
               l.e = at(rows, cols+1)->alive;
+              if(DEBUG){cout<<"e:"<<l.e<<"\n";}
+              }
             at(i)->living(l);
 //            rows=cols=0;
 //}

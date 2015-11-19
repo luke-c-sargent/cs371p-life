@@ -22,5 +22,5 @@ class AbstractCell {
 	virtual ~AbstractCell(){}
 	virtual void print_cell() = 0;
   virtual void living(Locale l) = 0;
-  virtual void heterogeneous_grid_act() = 0;
+  virtual bool heterogeneous_grid_act() = 0;
 };
