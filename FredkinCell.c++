@@ -22,7 +22,7 @@ int FredkinCell::act(){
     }else{
         if(living_neighbors%2 == 0 && living_neighbors < 5){ // if its even and < 5
             alive=false;
-            age=0;
+//            age=0;
             delta = -1;
         }else
          {
@@ -50,7 +50,7 @@ void FredkinCell::print_cell() {
 bool FredkinCell::heterogeneous_grid_act(){
   // we have to return false if the cell would die, and true if the cell
   //would live and is to turn 2.
-  return (age == 1 && !((living_neighbors%2 == 0) && (living_neighbors < 5)));
+  return (age == 1 && !((living_neighbors%2 == 0) && (living_neighbors < 5)) && alive);
 }
 
 FredkinCell* FredkinCell::operator->() {
