@@ -41,7 +41,6 @@ void ConwayCell::print_cell(){
 }
 
 bool ConwayCell::heterogeneous_grid_act(){
-  act();
   return false;
 }
 

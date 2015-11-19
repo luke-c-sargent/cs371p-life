@@ -40,6 +40,7 @@ class Life{
     grid_cols = cols;
     input_stream >> evolutions;
     input_stream >> frequency;
+    cout << rows << "x" << cols << " ***\n" << endl;
     generation = 0;
     population = 0;
     if(DEBUG){cout<<"L():E:"<<evolutions<<" F:"<<frequency<<endl;}
@@ -191,6 +192,7 @@ class Life{
   }
   
   void evolve() {
+    print_grid();
     while (generation < evolutions) {
       step();
       print_grid();
