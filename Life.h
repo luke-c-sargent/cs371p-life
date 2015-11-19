@@ -73,7 +73,7 @@ class Life{
 
   void populate_homogeneous_grid(){
     string line;
-    getline(input_stream,line);
+//    getline(input_stream,line);
     for (int i = 0; i < grid_rows; i++){
       getline(input_stream, line);
       if(DEBUG){cout<<"L-Hom:"<<line<<endl;}
