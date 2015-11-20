@@ -23,6 +23,10 @@ struct Locale{
 template <typename CellType>
 class Life;
 
+
+/* 
+  Life_Iterator for class life. Iterates through Life's grid.
+*/
 template <typename CellType>
 class Life_Iterator : public iterator<input_iterator_tag, int> {   
     int _p; // position
@@ -52,6 +56,9 @@ public:
         return x;}
 };
 
+/*
+  AbstractCell is the abstract parent class of ConwayCell and FredkinCell.
+*/
 class AbstractCell {
 	friend class Cell;
     
@@ -66,6 +73,9 @@ class AbstractCell {
   virtual bool heterogeneous_grid_act() = 0;
 };
 
+/* 
+  FredkinCell is a child class of AbstractCell.
+*/
 class FredkinCell: public AbstractCell{ 
   public:
   int age;
@@ -76,7 +86,9 @@ class FredkinCell: public AbstractCell{
     bool heterogeneous_grid_act();
     FredkinCell* operator->();
 };
-
+/*
+  ConwayCell is a child class of AbstractCell.
+*/
 class ConwayCell: public AbstractCell{
   public:
   ConwayCell(bool living = false);
@@ -102,10 +114,10 @@ public:
 
 template<typename CellType>
 class Life{
+  public:
 	int grid_rows,grid_cols,evolutions,frequency,generation,population;
 	vector<CellType> grid;
     istream& input_stream;
-  public:
 	bool is_hetero;
 
   //constructor
