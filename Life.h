@@ -19,18 +19,14 @@ struct Locale{
     Locale():n(0),ne(0),e(0),se(0),s(0),sw(0),w(0),nw(0){}
 };
 #endif
-//template <typename CellType>
-//class Life_Iterator<CellType>;
 
 template <typename CellType>
 class Life;
 
-//class Life_Iterator;
 template <typename CellType>
 class Life_Iterator : public iterator<input_iterator_tag, int> {   
     int _p; // position
     Life<CellType>* d;
-    //Life* d;
 public:
     Life_Iterator(int v, Life<CellType>* li) :
                 _p (v), d(li)
@@ -122,20 +118,13 @@ class Life{
     string line;
     
     getline(input_stream, line);
-    if(DEBUG){cout << "evos:"<<line<<endl;}
     evolutions=stoi(line);
     getline(input_stream, line);
-    if(DEBUG){cout << "freqs:"<<line<<endl;}
     frequency=stoi(line);
-    
-    cout << rows << "x" << cols << " ***" << endl << endl; 
-    //getline(input_stream, line);
-    //if(DEBUG){cout << "next:"<<line<<endl;}
-    //exit(0);
-    
+   
+    cout << rows << "x" << cols << " ***" << endl << endl;
     generation = 0;
     population = 0;
-    if(DEBUG){cout<<"L():E:"<<evolutions<<" F:"<<frequency<<endl;}
   }
 
   void populate_heterogeneous_grid(){
