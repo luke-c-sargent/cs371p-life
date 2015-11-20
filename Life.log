@@ -1,0 +1,372 @@
+commit 5c90689543389d62fa838eacf085ee0de92ed713
+Merge: e4da145 43fa553
+Author: Luke <luke.c.sargent@gmail.com>
+Date:   Thu Nov 19 21:40:32 2015 -0600
+
+    Merge branch 'master' of https://github.com/luke-c-sargent/cs370p-life
+
+commit e4da145f8014ff66f9d913241872a6b2d2793a5d
+Author: Luke <luke.c.sargent@gmail.com>
+Date:   Thu Nov 19 21:40:01 2015 -0600
+
+    final test upload, bugfix for end()
+
+commit 43fa55393cfa7086abdc9aaee05b70374909c228
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Thu Nov 19 21:21:07 2015 -0600
+
+    fixing IO
+
+commit 99f14f3b697ac9ad6eb542fce74b622043ada43c
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Thu Nov 19 21:16:57 2015 -0600
+
+    Adding tests
+
+commit 3ffaa861dfd9215540d2fc5d5768481c22a8417e
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Thu Nov 19 21:10:44 2015 -0600
+
+    travis? you okay buddy?
+
+commit 3a551e679c172581b8c19b39e3fe6b7f1e366ca8
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Thu Nov 19 20:57:32 2015 -0600
+
+    print title
+
+commit de1c3750fe0fea513dba926ce2132348ce90ceb6
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Thu Nov 19 20:52:26 2015 -0600
+
+    Added iterator
+
+commit 9f93d301a0f2e9ca05378e5383202e891d5047df
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Thu Nov 19 19:38:38 2015 -0600
+
+    combined files, clean up
+
+commit 565ccc4520dc8cce873900f38e3181669cb2fc5f
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Thu Nov 19 18:48:33 2015 -0600
+
+    adding srunlife
+
+commit 1273f8204827b836843df3426c0858df99416b94
+Merge: 70238d4 c5bdfa0
+Author: Luke <luke.c.sargent@gmail.com>
+Date:   Thu Nov 19 18:33:18 2015 -0600
+
+    evolutions properly evolving, you're welcome Charles Darwin
+
+commit 70238d4f3beb5d2b99c365c51281fa472223524a
+Author: Luke <luke.c.sargent@gmail.com>
+Date:   Thu Nov 19 18:30:32 2015 -0600
+
+    evolutions properly evolving, you're welcome Charles Darwin
+
+commit c5bdfa07027355528ed622d635ac561c2f81c559
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Thu Nov 19 17:57:14 2015 -0600
+
+    crap.
+
+commit b0e52e331977656b68b562d8eb41e26de58364a4
+Author: Luke <luke.c.sargent@gmail.com>
+Date:   Thu Nov 19 17:42:10 2015 -0600
+
+    fixed errors in input leading to malformed graphcs
+
+commit a97cc2c5590cabf75b662528d09335c2951049c0
+Author: Luke <luke.c.sargent@gmail.com>
+Date:   Thu Nov 19 17:41:50 2015 -0600
+
+    fixed errors in input leading to malformed graphcs
+
+commit 8879ac4e30c74e1d74347cc9553ce7dc05721e49
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Thu Nov 19 16:10:02 2015 -0600
+
+    UML diagram
+
+commit 06df4c9aa48ba53730e3fc84558359b1eb18d87e
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Thu Nov 19 16:02:09 2015 -0600
+
+    added acceptance tests
+
+commit 13fe7e7088d472f25086a95e180b4b388c083aae
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Thu Nov 19 14:20:12 2015 -0600
+
+    FredkinCells were losing their age when they died. Fixed. ok, now it's actually bells and whistles time.
+
+commit 032493c4950dd415d6f2cd39a96530db9ed0a3c8
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Thu Nov 19 13:57:25 2015 -0600
+
+    population fixed. everything working. bells and whistles here we go.
+
+commit 68348b801c64621097fb09510245d15de8ba176c
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Thu Nov 19 13:32:29 2015 -0600
+
+    RunLife working correctly, test working correctly
+
+commit 19024617fea2a6efa8ffea7609120f7d04a349f5
+Author: Luke <luke.c.sargent@gmail.com>
+Date:   Thu Nov 19 13:16:05 2015 -0600
+
+    fixed grid reading from input stream and neighbor count problems, per github issue #8
+
+commit 2d094c71e36fd17f80a19c20c632e981f1b6c05f
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Thu Nov 19 08:34:31 2015 -0600
+
+    hetero working. population count is buggy for hetero. not sure why.
+
+commit 855e5ac81a6cac1fc0db92516f52f6adfa7ecbd8
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Thu Nov 19 07:55:48 2015 -0600
+
+    heterogeneous_grid_act deletes the fredkin and creates the conway correctly (no seg fault). the logic is still not quite correct.
+
+commit f3318fbc12626d24dcadb253e41090d97ffa4867
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Wed Nov 18 23:25:31 2015 -0600
+
+    IO is SOLID
+
+commit 2494174085f6afa70e07456b8b9a688526155ed7
+Merge: 9ce142c 7936917
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Wed Nov 18 23:15:56 2015 -0600
+
+    merge
+
+commit 7936917eeb799dc5248854c2ca694c7530f11912
+Merge: 473653f 6e47f4f
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Wed Nov 18 23:10:44 2015 -0600
+
+    merge
+
+commit 9ce142c94c547111f8c6232b95b9c52b0cc017e2
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Wed Nov 18 22:54:58 2015 -0600
+
+    removed strings auto inserted by merge
+
+commit bc848bc1a1f403c29e3cb2df9763a2021807a14f
+Merge: de682a5 6e47f4f
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Wed Nov 18 22:43:39 2015 -0600
+
+    merging
+
+commit de682a5507832428a84b4f1b6f940b00c40ac65b
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Wed Nov 18 22:42:47 2015 -0600
+
+    removed life tests
+
+commit 473653f08a5e527ab4886f82e193ac72cf1ee223
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Wed Nov 18 22:34:13 2015 -0600
+
+    IO!
+
+commit 6e47f4f8a602ac5d6c95b2e7fffc8c8013cd0811
+Author: Luke <luke.c.sargent@gmail.com>
+Date:   Wed Nov 18 22:30:45 2015 -0600
+
+    changed virtual function act() signature across objects
+
+commit 254b7ff9be5a6e49ff7b1afcca728f1c722e03d2
+Author: Luke <luke.c.sargent@gmail.com>
+Date:   Wed Nov 18 19:39:52 2015 -0600
+
+    added initialization for living_neighbors per issue#7
+
+commit 89f02ca513b94ffff81580a8cb8cb69ba9a1eaa5
+Merge: 7002fa2 ced019b
+Author: Luke <luke.c.sargent@gmail.com>
+Date:   Wed Nov 18 19:20:25 2015 -0600
+
+    Merge branch 'katie' of https://github.com/luke-c-sargent/cs371p-life into katie
+
+commit 7002fa20a47ddc3773de8ff747c3111a09821fa5
+Author: Luke <luke.c.sargent@gmail.com>
+Date:   Wed Nov 18 19:19:38 2015 -0600
+
+    added variable istream to Life Constructor, various tweaks
+
+commit ced019bfbbb063d98820bdd447cfa4a041f90884
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Wed Nov 18 17:15:31 2015 -0600
+
+    travis?
+
+commit d104dcb9f46699c4507b1f44ca6ce9b00a820d5d
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Wed Nov 18 17:03:04 2015 -0600
+
+    travis
+
+commit 26b22ed62c6628ae1de4472fa714566b676775da
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Wed Nov 18 16:58:31 2015 -0600
+
+    travis travis 1 2 3
+
+commit c3819b19166dcd54371e99830bdbb59f3c92ea0a
+Merge: a17aea5 ac1387f
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Wed Nov 18 16:37:52 2015 -0600
+
+    merging
+
+commit a17aea59c75ec6ffb9ad723a1fe5e227eaa70eef
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Wed Nov 18 16:36:19 2015 -0600
+
+    working on step()
+
+commit ac1387f6ae06ab423251b769a8bb532c013f8a55
+Author: Luke <luke.c.sargent@gmail.com>
+Date:   Wed Nov 18 15:34:35 2015 -0600
+
+    added tests, makefile 'make TestLife' command
+
+commit 06c3673dbd838a41fc894a847a050edea80b56fe
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Wed Nov 18 13:51:31 2015 -0600
+
+    this commit runs a single simulation for each grid in RunLife.in. Some look buggy, some don't. (act() is not complete in hetero Fredkin anyway)
+
+commit b32f45370c3e62c71e4d7292c7e4aa6543af1928
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Wed Nov 18 13:37:55 2015 -0600
+
+    implemented living(), evolve(), run_simulations(). The board is evolving. Can't quite tell how correctly it is evolving, yet.
+
+commit 56015ad94644176873cd889dc6d92af65e9e7a88
+Author: Luke <luke.c.sargent@gmail.com>
+Date:   Wed Nov 18 11:56:38 2015 -0600
+
+    boundary checking added, tests to come
+
+commit 0fe7a55cf2a4272fe98e5f18f760e05c1999ea6a
+Author: Luke <luke.c.sargent@gmail.com>
+Date:   Wed Nov 18 08:17:24 2015 -0600
+
+    Locale struct added, partial living-check implemented
+
+commit 2f70d66b2c6f5f3c79fd2192f66a90fe8a205c57
+Author: Luke <luke.c.sargent@gmail.com>
+Date:   Tue Nov 17 20:59:59 2015 -0600
+
+    added partial act() functionality (Fred & Conway, not Cell)
+
+commit 19d4b883af106121bc746ecd49ab866e1f2b87b1
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Tue Nov 17 17:29:47 2015 -0600
+
+    state is set for homogeneous grids, -> overloading implemented
+
+commit bb1a3ab63e921ba340fc241c0dcc546d37b930e9
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Tue Nov 17 13:34:16 2015 -0600
+
+    rows/cols naming is fixed.
+
+commit 59e1fc8b66afc62f5023ae11ab5396618eb44887
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Sun Nov 15 12:29:27 2015 -0600
+
+    general cleanup and improvement. Added a virtual print_cell() declaration to AbstractCell, and implemented it for its child classes. print_grid() is working for homogeneous grids. Combined the populate_grid() functions for ConwayCell and FredkinCell into populate_homogeneous_grid().
+
+commit 052638c95e58698eecf6c12b0705727b25c28b89
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Sun Nov 15 12:03:14 2015 -0600
+
+    I'm dumb. Was using references wrong. We can populate the grid and the cells hold their states now. Derp.
+
+commit 62cf947da91d924efa8c8867457a1cec5b4d27bd
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Sun Nov 15 11:50:29 2015 -0600
+
+    minor improvements. Current status: Can set FredkinCells to alive or dead in populate_fredkin_grid(), but that status is lost by the time we get to print_grid(). thought it had something to do with inheritance, but I haven't done anything with inheritance for print_grid()/print_cell() yet. :/
+
+commit 90e7ad646255923013438fb348c76c777c02d439
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Sat Nov 14 21:34:11 2015 -0600
+
+    minor changes... added a print function. Found out we have some issues initializing FredkinCells (at least Fredkin, prolly more)
+
+commit feb76e06e7e10e495dd23b438eb24a492618242c
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Sat Nov 14 19:45:38 2015 -0600
+
+    added logic to populate a heterogeneous grid
+
+commit 7de5d71a4447070dec4ca882bc9c14b240e6ed13
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Sat Nov 14 19:10:35 2015 -0600
+
+    added logic for at() and index conversions. took out the little bit of stuff for the dead cell moat.
+
+commit e0b248ff2e0970f9ab27e531ccfb4ff3178c05dc
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Sat Nov 14 18:55:45 2015 -0600
+
+    minor changes
+
+commit 796d837bf72e7513c6fb272cf43a04b5ef83dbc3
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Sat Nov 14 18:26:01 2015 -0600
+
+    ITS NOT BROKENNNNNNNNNNNNNNNN
+
+commit b7d1ea03b1ebc9eea285038f776b828d1ddae9ae
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Sat Nov 14 15:59:37 2015 -0600
+
+    having a seg fault issue, cannot figure it out. Will add to issues.
+
+commit 209bdffb6e90e513d25c7a8cbe4ed03cdcfc0728
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Sat Nov 14 14:54:56 2015 -0600
+
+    fuck this so much.
+
+commit 90046c4fa69d9d855f556d0fc088c31ed89eae66
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Sat Nov 14 14:02:23 2015 -0600
+
+    I/O is solid, having issues in main() -- we might have a bit of code bloat in that function since we can't declare a Life<T> without knowing what T is. bloat shouldn't be too bad, though...
+
+commit 83ddf3441a25993c88cc032ca54dbf16d09cd679
+Author: Katie Taylor <katie.taylor@utexas.edu>
+Date:   Sat Nov 14 13:34:28 2015 -0600
+
+    a little messy currently, getting general setup and I/O working
+
+commit eedd58f0f5ec8f4a2e7a45877f08d20ce435963c
+Author: Luke <luke.c.sargent@gmail.com>
+Date:   Thu Nov 12 12:57:06 2015 -0600
+
+    first test testing
+
+commit 7542c5428eead03ced91826be802b178523ed096
+Author: luke-c-sargent <luke.c.sargent@gmail.com>
+Date:   Thu Nov 12 11:52:18 2015 -0600
+
+    added testing logic
+
+commit 2ec6cdc9f885754acf7afdc79828e9d1bc959dd4
+Author: Luke <luke.c.sargent@gmail.com>
+Date:   Thu Nov 12 09:48:59 2015 -0600
+
+    first commit
