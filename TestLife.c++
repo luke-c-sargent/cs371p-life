@@ -11,7 +11,25 @@
 #include "Life.h"
  
 using namespace std;
- 
+//Life_Iterator
+TEST(LifeFixture, Life_Iterator_1){//construction
+    istringstream s("3\n4\n*******");
+    Life<Cell> l(2,2,s);
+    Life_Iterator<Cell> li(0,&(l));
+    ASSERT_EQ(0,li._p);
+}
+TEST(LifeFixture, Life_Iterator_2){//begin()
+    istringstream s("3\n4\n*******");
+    Life<Cell> l(2,2,s);
+    Life_Iterator<Cell> li(0,&(l));
+    ASSERT_EQ(li,l.begin());
+}
+TEST(LifeFixture, Life_Iterator_3){//end()
+    istringstream s("3\n4\n*******");
+    Life<Cell> l(2,2,s);
+    Life_Iterator<Cell> li(4,&(l));
+    ASSERT_EQ(li,l.end());
+}
 //Life--------------------------------------------
 //  Constructors
 TEST(LifeFixture, Life_Constructor_1){

@@ -29,9 +29,10 @@ class Life;
 */
 template <typename CellType>
 class Life_Iterator : public iterator<input_iterator_tag, int> {   
+public:
     int _p; // position
     Life<CellType>* d;
-public:
+
     Life_Iterator(int v, Life<CellType>* li) :
                 _p (v), d(li)
             {}
@@ -192,7 +193,7 @@ class Life{
 Life_Iterator<CellType> begin(){ 
 	return Life_Iterator<CellType>(0,this); } 
 Life_Iterator<CellType> end(){ 
-	return Life_Iterator<CellType>(grid.size()*grid[0].size(),this); } 
+	return Life_Iterator<CellType>(grid.size(),this); } 
 
   int convert(int rows, int cols) {
     return rows*grid_cols+cols;
