@@ -11,7 +11,7 @@
 #include "ConwayCell.h"
 
 #ifndef DEBUG
-#define DEBUG true
+#define DEBUG false
 #endif
 
 using namespace std;
@@ -42,10 +42,10 @@ class Life{
     
     getline(input_stream, line);
     if(DEBUG){cout << "evos:"<<line<<endl;}
-    evolutions=1;//stoi(line);
+    evolutions=stoi(line);
     getline(input_stream, line);
     if(DEBUG){cout << "freqs:"<<line<<endl;}
-    frequency=1;//stoi(line);
+    frequency=stoi(line);
     
     //getline(input_stream, line);
     //if(DEBUG){cout << "next:"<<line<<endl;}
@@ -203,6 +203,7 @@ class Life{
   
   void evolve() {
     while (generation < evolutions) {
+      
       step();
       print_grid();
     }  
