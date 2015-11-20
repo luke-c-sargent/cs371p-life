@@ -71,7 +71,7 @@ RunLife: Life.h Life.c++ RunLife.c++
 	$(CXX) $(CXXFLAGS) Life.h Life.c++ RunLife.c++ -o RunLife
 
 RunLife.tmp: RunLife
-	./RunLife < klt658-RunLife.in > klt658-RunLife.out
+	./RunLife < RunLife.in > RunLife.out
 #	diff RunDarwin.tmp RunDarwin.out
 
 cleantests:

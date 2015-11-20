@@ -6,10 +6,6 @@
 #include <string>
 #include "gtest/gtest_prod.h"
 
-#include "Cell.h"
-#include "FredkinCell.h"
-//#include "ConwayCell.h"
-
 #ifndef DEBUG
 #define DEBUG false
 #endif
@@ -23,6 +19,42 @@ struct Locale{
     Locale():n(0),ne(0),e(0),se(0),s(0),sw(0),w(0),nw(0){}
 };
 #endif
+//template <typename CellType>
+//class Life_Iterator<CellType>;
+
+template <typename CellType>
+class Life;
+
+//class Life_Iterator;
+template <typename CellType>
+class Life_Iterator : public iterator<input_iterator_tag, int> {   
+    int _p; // position
+    Life<CellType>* d;
+    //Life* d;
+public:
+    Life_Iterator(int v, Life<CellType>* li) :
+                _p (v), d(li)
+            {}
+    bool operator == (const Life_Iterator& rhs) const {
+            return (_p == rhs._p);}
+ 
+    bool operator != (const Life_Iterator& rhs) const {
+        return !(*this == rhs);}
+ 
+    const CellType& operator * () const {
+        int width = d->grid[0].size();
+        cout << width << endl;
+        return *(d->grid[_p/width][_p%width]);}
+
+    Life_Iterator& operator ++ () {
+        ++_p;
+        return *this;}
+ 
+    Life_Iterator operator ++ (int) {
+        Life_Iterator x = *this;
+        ++*this;
+        return x;}
+};
 
 class AbstractCell {
 	friend class Cell;
@@ -38,10 +70,9 @@ class AbstractCell {
   virtual bool heterogeneous_grid_act() = 0;
 };
 
-class FredkinCell: public AbstractCell{
-  int age;
-  
+class FredkinCell: public AbstractCell{ 
   public:
+  int age;
 	FredkinCell(bool living = false);
 	int act();
     void print_cell();
@@ -157,6 +188,11 @@ class Life{
     return grid[n];
   }
 
+Life_Iterator<CellType> begin(){ 
+	return Life_Iterator<CellType>(0,this); } 
+Life_Iterator<CellType> end(){ 
+	return Life_Iterator<CellType>(grid.size()*grid[0].size(),this); } 
+
   int convert(int rows, int cols) {
     return rows*grid_cols+cols;
   }
@@ -262,3 +298,5 @@ class Life{
   //FRIEND TESTS
 	FRIEND_TEST(LifeFixture, Life_Constructor_1);
 };
+
+
