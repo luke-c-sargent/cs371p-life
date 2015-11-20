@@ -9,6 +9,7 @@ int main() {
   int rows, cols;
   while (getline(cin, line)) {
     if (strcmp(line.c_str(), "Cell") == 0) {
+      cout << "*** Life<Cell> ";
       getline(cin, line);
       if(DEBUG){cout<<"rline:"<<line<<endl;}
       rows=stoi(line);
@@ -25,6 +26,7 @@ int main() {
     } 
     else{
       if (strcmp(line.c_str(), "ConwayCell") == 0) {
+        cout << "*** Life<ConwayCell> ";
         getline(cin, line);
         if(DEBUG){cout<<"rline:"<<line<<endl;}
         rows=stoi(line);
@@ -43,6 +45,7 @@ int main() {
         l.evolve(); //run simulations
       }
       else if (strcmp(line.c_str(), "FredkinCell") == 0) {
+        cout << "*** Life<FredkinCell> ";
         getline(cin, line);
         if(DEBUG){cout<<"rline:"<<line<<endl;}
         rows=stoi(line);

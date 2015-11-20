@@ -8,7 +8,7 @@
 
 #include "Cell.h"
 #include "FredkinCell.h"
-#include "ConwayCell.h"
+//#include "ConwayCell.h"
 
 #ifndef DEBUG
 #define DEBUG false
@@ -23,6 +23,56 @@ struct Locale{
     Locale():n(0),ne(0),e(0),se(0),s(0),sw(0),w(0),nw(0){}
 };
 #endif
+
+class AbstractCell {
+	friend class Cell;
+    
+  public:
+	virtual int act()=0;
+  int living_neighbors;
+	bool alive;
+	AbstractCell(){}
+	virtual ~AbstractCell(){}
+	virtual void print_cell() = 0;
+  virtual void living(Locale l) = 0;
+  virtual bool heterogeneous_grid_act() = 0;
+};
+
+class FredkinCell: public AbstractCell{
+  int age;
+  
+  public:
+	FredkinCell(bool living = false);
+	int act();
+    void print_cell();
+    void living(Locale);
+    bool heterogeneous_grid_act();
+    FredkinCell* operator->();
+};
+
+class ConwayCell: public AbstractCell{
+  public:
+  ConwayCell(bool living = false);
+  int act();
+  void living(Locale);
+  void print_cell();
+  bool heterogeneous_grid_act();
+  ConwayCell* operator ->();
+};
+
+class Cell{
+	friend class FredkinCell;
+	friend class ConwayCell;
+
+public:	
+    void living(Locale);
+	AbstractCell* abstractcell_ptr;
+	Cell(AbstractCell* = nullptr);
+    ~Cell();
+    int act();
+    AbstractCell* operator -> ();
+};
+
 template<typename CellType>
 class Life{
 	int grid_rows,grid_cols,evolutions,frequency,generation,population;
@@ -47,6 +97,7 @@ class Life{
     if(DEBUG){cout << "freqs:"<<line<<endl;}
     frequency=stoi(line);
     
+    cout << rows << "x" << cols << " ***" << endl << endl; 
     //getline(input_stream, line);
     //if(DEBUG){cout << "next:"<<line<<endl;}
     //exit(0);

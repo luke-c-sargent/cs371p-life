@@ -1,10 +1,6 @@
 FILES :=                              \
     .travis.yml                       \
-#    html                              \
-
-CEEPEEPEES := \
-	Life.h AbstractCell.h Cell.h FredkinCell.h ConwayCell.h \
-	FredkinCell.c++ ConwayCell.c++ Cell.c++
+#    html                              
 
 CXX        := g++-4.8
 CXXFLAGS   := -pedantic -std=c++11 -Wall
@@ -71,11 +67,11 @@ Life.log:
 Doxyfile:
 	doxygen -g
 
-RunLife: Life.h Life.c++ Cell.h Cell.c++ AbstractCell.h FredkinCell.h FredkinCell.c++ ConwayCell.h ConwayCell.c++ RunLife.c++
-	$(CXX) $(CXXFLAGS) Life.h Life.c++ Cell.h Cell.c++ AbstractCell.h FredkinCell.h FredkinCell.c++ ConwayCell.h ConwayCell.c++ RunLife.c++ -o RunLife
+RunLife: Life.h Life.c++ RunLife.c++
+	$(CXX) $(CXXFLAGS) Life.h Life.c++ RunLife.c++ -o RunLife
 
 RunLife.tmp: RunLife
-	./RunLife < s-RunLife.in > s-RunLife.out
+	./RunLife < klt658-RunLife.in > klt658-RunLife.out
 #	diff RunDarwin.tmp RunDarwin.out
 
 cleantests:
@@ -83,7 +79,7 @@ cleantests:
 	make TestLife
 
 TestLife:
-	$(CXX) $(CXXFLAGS) $(GCOVFLAGS) $(CEEPEEPEES) TestLife.c++ -o TestLife $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) $(GCOVFLAGS) Life.h Life.c++ TestLife.c++ -o TestLife $(LDFLAGS)
 
 TestLife.tmp: TestLife
 	$(VALGRIND) ./TestLife                                       >  TestLife.tmp 2>&1
