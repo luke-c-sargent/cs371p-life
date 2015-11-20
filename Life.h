@@ -14,17 +14,23 @@ using namespace std;
 
 #ifndef LOCALE
 #define LOCALE
+
+/** 
+  Locale is used to save the number of live neighbors for the cells
+*/
 struct Locale{
     int n,ne,e,se,s,sw,w,nw;
     Locale():n(0),ne(0),e(0),se(0),s(0),sw(0),w(0),nw(0){}
 };
 #endif
 
+/**
+  Forward declaration of Life class
+*/
 template <typename CellType>
 class Life;
 
-
-/* 
+/**
   Life_Iterator for class life. Iterates through Life's grid.
 */
 template <typename CellType>
@@ -56,34 +62,70 @@ public:
         return x;}
 };
 
-/*
+/**
   AbstractCell is the abstract parent class of ConwayCell and FredkinCell.
 */
 class AbstractCell {
 	friend class Cell;
     
   public:
-	virtual int act()=0;
   int living_neighbors;
 	bool alive;
+  
+  /**
+    Constructor
+  */
 	AbstractCell(){}
+  /**
+    Destructor
+  */
 	virtual ~AbstractCell(){}
+  /**
+    act() is overridden by FredkinCell and ConwayCell.
+  */
+  virtual int act()=0;
+
+  /**
+    print_cell() is overridden by FredkinCell and ConwayCell.
+  */
 	virtual void print_cell() = 0;
+  /**
+    living() is overridden by FredkinCell and ConwayCell.
+  */
   virtual void living(Locale l) = 0;
+  /**
+    heterogeneous_grid_act() is overridden by FredkinCell and ConwayCell.
+  */
   virtual bool heterogeneous_grid_act() = 0;
 };
 
-/* 
+/**
   FredkinCell is a child class of AbstractCell.
 */
 class FredkinCell: public AbstractCell{ 
   public:
-  int age;
-	FredkinCell(bool living = false);
-	int act();
+
+    int age;
+  	FredkinCell(bool living = false);
+	  
+    /** 
+      act() changes the state of the FredkinCell - changes it to alive or dead,
+      or increases its age
+    */
+    int act();
+    /** 
+      prints the value of a single cell
+    */
     void print_cell();
+    /** 
+      counts the number of living neighbors
+    */
     void living(Locale);
+    /** 
+      determines whether the FredkinCell should become a ConwayCell
+    */
     bool heterogeneous_grid_act();
+
     FredkinCell* operator->();
 };
 /*
@@ -92,13 +134,30 @@ class FredkinCell: public AbstractCell{
 class ConwayCell: public AbstractCell{
   public:
   ConwayCell(bool living = false);
+   /** 
+      act() changes the state of the ConwayCell - changes it to alive or dead,
+      or stays the same.
+    */
   int act();
+  /** 
+      counts the number of living neighbors
+  */
   void living(Locale);
+  /** 
+      prints the value of a single cell
+  */
   void print_cell();
+  /** 
+    calls act
+  */
   bool heterogeneous_grid_act();
   ConwayCell* operator ->();
 };
 
+/* 
+  Cell is a handle class, used when the Life grid has a hetergeneous
+  mix of FredkinCell and ConwayCells.
+*/
 class Cell{
 	friend class FredkinCell;
 	friend class ConwayCell;
@@ -112,6 +171,10 @@ public:
     AbstractCell* operator -> ();
 };
 
+/* 
+  Life class - a template class
+  Life can be of type Cell, FredkinCell, or ConwayCell.
+*/
 template<typename CellType>
 class Life{
   public:
@@ -137,7 +200,10 @@ class Life{
     generation = 0;
     population = 0;
   }
-
+  
+  /**
+    Used to set up the initial state of a Cell grid
+  */
   void populate_heterogeneous_grid(){
     string line;
     for (int i = 0; i < grid_rows; i++){
@@ -164,6 +230,9 @@ class Life{
     }
   }
 
+  /** 
+    Used to set up the initial state of a FredkinCell or ConwayCell grid
+  */
   void populate_homogeneous_grid(){
     string line;
     //getline(input_stream,line);
@@ -179,19 +248,34 @@ class Life{
     }
   }
 
+  /**
+    input parameters rows,cols
+  */
   CellType& at(int rows, int cols) {
     int n = convert(rows, cols);
     return grid[n];
   }
 
+  /**
+    single input parameter at()
+  */
   CellType& at(int n) {
     return grid[n];
   }
 
-Life_Iterator<CellType> begin(){ 
-	return Life_Iterator<CellType>(0,this); } 
-Life_Iterator<CellType> end(){ 
-	return Life_Iterator<CellType>(grid.size()*grid[0].size(),this); } 
+  /** 
+    for use with the iterator
+  */
+  Life_Iterator<CellType> begin() { 
+	  return Life_Iterator<CellType>(0,this); 
+  }
+
+  /** 
+    for use with the iterator
+  */
+  Life_Iterator<CellType> end(){ 
+	  return Life_Iterator<CellType>(grid.size()*grid[0].size(),this); 
+  } 
 
   int convert(int rows, int cols) {
     return rows*grid_cols+cols;
@@ -201,6 +285,9 @@ Life_Iterator<CellType> end(){
     return make_pair((i/grid_cols), (i-(i/grid_cols)*grid_cols));
   }
  
+  /** 
+    prints the entire grid
+  */
   void print_grid() {
     cout << "Generation = " << generation << ", Population = " << population << "." << endl;
     for (int i = 0; i < grid_rows; i++){
@@ -212,77 +299,53 @@ Life_Iterator<CellType> end(){
     cout << endl;
   }
   
-  void step(){ //int steps=1){
+  /** 
+    executions frequency number of evolutions
+  */
+  void step(){
     for (int i = 0; i < frequency; ++i){
       set_living();
       process_cells();
       ++generation;
       }
   }
-
+  /** 
+    counts the number of living neighbors
+  */
   void set_living(){
     int cols, rows;
     cols=rows=0;
     if(DEBUG){cout<<"SET LIVING:"<<endl;}
     for(int i=0; i < grid.size(); ++i){//going through the cells,
-        //if(at(i)->alive){
-        
-            //_x=grid.size()%grid_cols; // get coords
-            //_y=grid.size()/grid_cols;
             pair<int,int> pair = convert(i);
             rows = pair.first;
             cols = pair.second;
             if(DEBUG){cout<<"--["<<rows<<", "<<cols<<"]";}
             Locale l; //get local info
- //         
             if (rows > 0) {
                 l.n=at(rows-1,cols)->alive;
-//              l.n=at(i-grid_cols)->alive; //north = one row up
-//                if(_x) // if x is not 0, can go backwards
-//                  l.nw=at(i-grid_cols-1)->alive;
                 if (cols > 0)
                   l.nw = at(rows-1,cols-1)->alive;
-//                else if( _x < ( grid_cols -1) )// if its not a eastmost cell
                 if(cols < grid_cols-1)// if its not a eastmost cell
-//                    l.ne=at(i-grid_cols+1)->alive;
                     l.ne=at(rows-1, cols+1)->alive;
             }
-//            if(_y != grid_rows - 1){ // if its not a bottom row, can check southern values
             if (rows < grid_rows-1){
-//                l.s=at(i+grid_cols)->alive; // south = one row down
               l.s = at(rows+1, cols)->alive;
-//                if(_x)
-            
-//                    l.sw=at(i+grid_cols-1)->alive;
               if (cols > 0)
                 l.sw = at(rows+1, cols-1)->alive;
-
-//                else if( _x < ( grid_cols -1) )
-//                    l.se=at(i+1+grid_cols)->alive;
               if (cols < grid_cols-1)
                 l.se = at(rows+1, cols+1)->alive;
             }
-/*            
-            if(_x)
-                l.w=at(i-1)->alive;// west = one back
-            if(_x < grid_cols)
-                l.e=at(i+1)->alive; // east = one forward
-            at(i)->living(l);
-            _x=_y=0;// reset values
-*/
             if (cols > 0)
               l.w = at(rows, cols-1)->alive;
             if (cols < grid_cols-1)
               l.e = at(rows, cols+1)->alive;
             at(i)->living(l);
-//            rows=cols=0;
-//}
       }
   }
   
   void process_cells(){
     for(int i=0; i < grid.size(); ++i){//going through the cells,
-        //at(i)->act();
         int delta = at(i).act();
         population += delta;
     }

@@ -60,7 +60,6 @@ FredkinCell::FredkinCell(bool living):
   living_neighbors=0;}
 
 int FredkinCell::act(){
-//cout << "here" << endl;
     //rules:
     //1)a dead cell becomes a live cell, if 1 or 3 neighbors are alive
     int delta=0;
@@ -73,7 +72,6 @@ int FredkinCell::act(){
     }else{
         if(living_neighbors%2 == 0 && living_neighbors < 5){ // if its even and < 5
             alive=false;
-//            age=0;
             delta = -1;
         }else
          {
@@ -117,7 +115,6 @@ Cell::~Cell(){
 }
 
 int Cell::act(){
-  //abstractcell_ptr->heterogeneous_grid_act();
   if(abstractcell_ptr->heterogeneous_grid_act()){
     delete abstractcell_ptr;
     abstractcell_ptr = new ConwayCell(true);
@@ -134,6 +131,5 @@ void Cell::living(Locale l){
 
 
 AbstractCell* Cell::operator->() {
-//  cout << "in operator" << endl;
   return abstractcell_ptr;
 } 
