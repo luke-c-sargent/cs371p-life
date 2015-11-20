@@ -17,7 +17,6 @@
 #include "gtest/gtest.h"
 
 #include "Life.h"
-#include "Cell.h"
 
 using namespace std;
 

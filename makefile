@@ -1,6 +1,14 @@
 FILES :=                              \
     .travis.yml                       \
-#    html                              
+    Life.h                            \
+    Life.c++                          \
+    Life.log                          \
+    html                              \
+    TestLife.c++                      \
+    TestLife.out                      \
+    RunLife.c++                       \
+    RunLife.in                        \
+    RunLife.out
 
 CXX        := g++-4.8
 CXXFLAGS   := -pedantic -std=c++11 -Wall
@@ -35,7 +43,7 @@ clean:
 	rm -f *.tmp
 	rm -f TestLife
 	rm -f RunLife
-
+ 
 config:
 	git config -l
 
@@ -71,8 +79,8 @@ RunLife: Life.h Life.c++ RunLife.c++
 	$(CXX) $(CXXFLAGS) Life.h Life.c++ RunLife.c++ -o RunLife
 
 RunLife.tmp: RunLife
-	./RunLife < RunLife.in > RunLife.out
-#	diff RunDarwin.tmp RunDarwin.out
+	./RunLife < RunLife.in > RunLife.tmp
+	diff RunLife.tmp RunLife.out
 
 cleantests:
 	make clean
@@ -83,7 +91,12 @@ TestLife:
 
 TestLife.tmp: TestLife
 	$(VALGRIND) ./TestLife                                       >  TestLife.tmp 2>&1
-#	$(GCOV) -b Life.h     | grep -A 5 "File 'Life.h'"     >> TestLife.tmp
+	$(GCOV) -b Life.h     | grep -A 5 "File 'Life.h'"     >> TestLife.tmp
 	$(GCOV) -b TestLife.c++ | grep -A 5 "File 'TestLife.c++'" >> TestLife.tmp
 	cat TestLife.tmp
-#	 $(GCOV) -b TestLife.c++     | grep -A 5 "File 'Life.h'"     >> TestLife.tmp
+
+ 
+TestLife.out: TestLife
+	$(VALGRIND) ./TestLife                                       >  TestLife.out 2>&1
+	$(GCOV) -b Life.h     | grep -A 5 "File 'Life.h'"     >> TestLife.out
+	$(GCOV) -b TestLife.c++ | grep -A 5 "File 'TestLife.c++'" >> TestLife.out
