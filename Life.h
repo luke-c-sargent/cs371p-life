@@ -135,7 +135,6 @@ class Life{
     getline(input_stream, line);
     frequency=stoi(line);
    
-    cout << rows << "x" << cols << " ***" << endl << endl;
     generation = 0;
     population = 0;
   }
