@@ -75,7 +75,7 @@ RunLife: Life.h Life.c++ Cell.h Cell.c++ AbstractCell.h FredkinCell.h FredkinCel
 	$(CXX) $(CXXFLAGS) Life.h Life.c++ Cell.h Cell.c++ AbstractCell.h FredkinCell.h FredkinCell.c++ ConwayCell.h ConwayCell.c++ RunLife.c++ -o RunLife
 
 RunLife.tmp: RunLife
-	./RunLife < RunLife.in > RunLife.tmp
+	./RunLife < s-RunLife.in > s-RunLife.out
 #	diff RunDarwin.tmp RunDarwin.out
 
 cleantests:
